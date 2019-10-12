@@ -107,6 +107,25 @@
         </div>
     </li>
 
+
+    <!-- Class -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClasses" aria-expanded="true" aria-controls="collapseClasses">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Classes</span>
+        </a>
+        <div id="collapseClasses" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Classes</h6>
+                <a class="collapse-item" href="<?php echo base_url() . 'Classes/addClass' ?>">Add Classes</a>
+                <a class="collapse-item" href="<?php echo base_url() . 'Classes' ?>">View Classes</a>
+            </div>
+        </div>
+    </li>
+
+
+
+
     <!-- Subject-->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSubject" aria-expanded="true" aria-controls="collapsePages">
