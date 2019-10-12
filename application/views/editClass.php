@@ -24,9 +24,6 @@
                     <!-- Page Heading -->
                     <h1 class="h3 mb-4 text-gray-800">Add Subject</h1>
                     <div class="border-left-primary">
-
-
-
                         <div class="container">
                             <form method="POST" action="<?php echo base_url() . 'Classes/showEdit/' . $class['id'] ?>">
                                 <div class="form-row">
@@ -36,10 +33,10 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="inputPassword4">Monthly Fee</label>
-                                        <input class="form-control" id="fee" placeholder="fee" name="fee" required value="<?php echo set_value('fee', $class['fee']); ?>"> </div>
+                                        <input class="form-control" id="fee" name="fee" placeholder="Monthly Fee (Integer Value)" pattern="\d+" required value="<?php echo set_value('fee', $class['fee']); ?>">
+                                    </div>
                                 </div> <button type="submit" class="btn btn-primary ">Done</button>
                             </form>
-
                         </div>
                     </div>
 

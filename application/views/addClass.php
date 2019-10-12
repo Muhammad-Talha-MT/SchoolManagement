@@ -32,8 +32,8 @@
                                         <input class="form-control" id="className" placeholder="Enter Class Name" name="className" required>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="inputPassword4">Fee</label>
-                                        <input class="form-control" id="fee" placeholder="Monthly Fee" name="fee" required> </div>
+                                        <label for="inputPassword4">Monthly Fee</label>
+                                        <input class="form-control" id="fee" placeholder="Monthly Fee (Integer Value)" name="fee" pattern="\d+" required> </div>
                                 </div> <button type="submit" class="btn btn-primary ">Save</button>
                             </form>
                         </div>
