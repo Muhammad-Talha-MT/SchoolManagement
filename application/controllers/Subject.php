@@ -27,7 +27,7 @@ class Subject extends CI_Controller
             $this->session->set_flashdata('success', 'Record Already Exist');
         }
 
-        redirect(base_url() . 'Subject/addSubjectScreen');
+        redirect(base_url() . 'Subject');
     }
     function showEdit($subjectId)
     {

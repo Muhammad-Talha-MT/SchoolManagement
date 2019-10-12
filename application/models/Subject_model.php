@@ -3,9 +3,11 @@ class Subject_Model extends CI_Model
 {
     function addUser($formArray)
     {
+        // print_r($formArray);
+        // die();
         $this->db->where('subjectName', $formArray['subjectName']);
         $q = $this->db->get('tbSubject');
-        if ($q) {
+        if (!$q) {
             return false;
         } else {
             $this->db->insert('tbSubject', $formArray);

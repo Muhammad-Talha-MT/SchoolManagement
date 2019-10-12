@@ -28,7 +28,7 @@
 
 
                         <div class="container">
-                            <form method="POST" action="<?php echo base_url() . 'Subject' ?>">
+                            <form method="POST" action="<?php echo base_url() . 'subject/addNewSubject' ?>">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="inputEmail4">Name</label>
