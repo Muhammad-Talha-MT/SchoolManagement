@@ -52,7 +52,6 @@
                                             <th>Monthly Fee</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
-
                                         </tr>
                                     </thead>
                                     <tfoot>

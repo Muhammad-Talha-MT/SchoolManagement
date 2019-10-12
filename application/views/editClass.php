@@ -36,6 +36,7 @@
                                         <input class="form-control" id="fee" name="fee" placeholder="Monthly Fee (Integer Value)" pattern="\d+" required value="<?php echo set_value('fee', $class['fee']); ?>">
                                     </div>
                                 </div> <button type="submit" class="btn btn-primary ">Done</button>
+                                <button class="btn btn-secondary active" onclick="window.location.href = '<?php echo base_url() . '.Classes.' ?>';">Cancel</button>
                             </form>
                         </div>
                     </div>

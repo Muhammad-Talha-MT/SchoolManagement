@@ -34,7 +34,8 @@
                                     <div class="form-group col-md-6">
                                         <label for="inputPassword4">Monthly Fee</label>
                                         <input class="form-control" id="fee" placeholder="Monthly Fee (Integer Value)" name="fee" pattern="\d+" required> </div>
-                                </div> <button type="submit" class="btn btn-primary ">Save</button>
+                                </div> <button type="submit" class="btn btn-primary">Save</button>
+                                <button class="btn btn-secondary active" onclick="window.location.href = '<?php echo base_url() . '.Classes.' ?>';">Cancel</button>
                             </form>
                         </div>
                     </div>
