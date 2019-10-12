@@ -87,7 +87,7 @@
         </div>
     </li>
 
-    <!-- Nav Item - Pages Collapse Menu -->
+    <!-- Student -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseStudents" aria-expanded="true" aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder"></i>
@@ -106,6 +106,7 @@
             </div>
         </div>
     </li>
+
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">

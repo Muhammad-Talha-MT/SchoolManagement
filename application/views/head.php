@@ -27,4 +27,5 @@
     <link href="<?= base_url() ?>resources/css/sb-admin-2.min.css" rel="stylesheet">
     <!-- Custom styles for this page -->
     <link href="<?= base_url() ?>resources/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
 </head>
