@@ -96,8 +96,8 @@
         <div id="collapseStudents" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Student</h6>
-                <a class="collapse-item" href="login.html">New Admission</a>
-                <a class="collapse-item" href="register.html">Register</a>
+                <a class="collapse-item" href="<?php echo base_url() . 'Student/admission' ?>">New Admission</a>
+                <a class="collapse-item" href="<?php echo base_url() . 'Student' ?>">Students</a>
                 <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
                 <div class="collapse-divider"></div>
                 <h6 class="collapse-header">Other Pages:</h6>
