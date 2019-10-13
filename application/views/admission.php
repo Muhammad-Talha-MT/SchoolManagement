@@ -45,8 +45,10 @@
                                         <label for="inputCity">Class</label>
                                         <select class="form-control" name="class" required>
                                             <option>----Class----</option>
-                                            <option value="0">PG</option>
-                                            <option value="1">Nursery</option>
+                                            <?php foreach ($classList as $class) { ?>
+                                                <option value="<?php echo $class['id']; ?>"><?php echo $class['className']; ?></option>
+                                            <?php } ?>
+
                                         </select>
                                     </div>
                                 </div>

@@ -31,7 +31,7 @@ class Student_model extends CI_Model
     function getStudentById($id)
     {
         $this->db->where("id", $id);
-        return $this->db->get("tbStudent")->row();
+        return $this->db->get("tbStudent")->row_array();
     }
 
     function updateStudent($id, $updateData)

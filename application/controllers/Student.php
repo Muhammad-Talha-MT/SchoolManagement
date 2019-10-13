@@ -7,6 +7,7 @@ class Student extends CI_Controller
         parent::__construct();
         $this->load->library('form_validation');
         $this->load->model('Student_model');
+        $this->load->model('Class_model');
     }
 
     //Index to Show Students
@@ -16,10 +17,19 @@ class Student extends CI_Controller
         $this->load->view('student', $data);
     }
 
+    function studentDetail($id)
+    {
+        $student = $this->Student_model->getStudentById($id);
+        $class = $this->Class_model->getClassById($student['class']);
+        $student['class'] = $class['className'];
+        $this->load->view('studentDetail', $student);
+    }
+
     //Admission Page
     function admission()
     {
-        $this->load->view('admission');
+        $data['classList'] = $this->Class_model->getClasses();
+        $this->load->view('admission', $data);
     }
 
     //Add Student from Admission Page
@@ -54,21 +64,19 @@ class Student extends CI_Controller
     //Registeration Number Generation
     function createRegNumber($classId)
     {
-        $className = array('PG', 'Nursery');
         $classCount = $this->Student_model->getClassCount($classId) + 1;
-        print_r($classCount);
-        //die();
         $year = Date('Y');
-        $class = $className[$classId];
-        $regNumber = $year . "-" . $class . "-" . $classCount;
+        $class = $this->Class_model->getClassById($classId);
+        $regNumber = $year . "-" . $class['className'] . "-" . $classCount;
         return $regNumber;
     }
 
     //Go To Edit Page
     function goToEditStudent($id)
     {
-        $student = $this->Student_model->getStudentById($id);
-        $this->load->view('editStudent', $student);
+        $data['student'] = $this->Student_model->getStudentById($id);
+        $data['class'] = $this->Class_model->getClasses();
+        $this->load->view('editStudent', $data);
     }
 
     //Edit Student
@@ -87,8 +95,6 @@ class Student extends CI_Controller
         $dataToSend['admissionBy'] = 1;
         $dataToSend['admissionDate'] = Date('Y-m-d');
         $dataToSend['yearOfAdmission'] = Date('Y');
-
-
         $this->Student_model->updateStudent($id, $dataToSend);
         $this->session->set_flashdata('success', 'Student is successfully updated');
         redirect(base_url() . 'Student');

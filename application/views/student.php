@@ -75,7 +75,7 @@
                                     <tbody>
                                         <?php foreach ($studentList as $student) { ?>
                                             <tr>
-                                                <td><img src="<?php echo base_url() . 'upload/' . $student['picture']; ?>" alt="No Picture"></td>
+                                                <td><img class="img-thumbnail" src="<?php echo base_url() . 'upload/' . $student['picture']; ?>" alt="No Picture"></td>
                                                 <td><?php echo $student['regNumber']; ?></td>
                                                 <td><?php echo $student['studentName']; ?></td>
                                                 <td><?php echo $student['fatherName']; ?></td>
@@ -83,7 +83,7 @@
                                                 <td><?php echo $student['gender']; ?></td>
                                                 <td><a href="<?php echo base_url() . 'Student/goToEditStudent/' . $student['id'] ?>" class="btn btn-success btn-circle"><i class="fas fa-edit"></i></a></td>
                                                 <td><a href="<?php echo base_url() . 'Student/deleteStudent/' . $student['id'] ?>" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></a></td>
-                                                <td><a href="<?php echo base_url() . 'Student/deleteStudent/' . $student['id'] ?>" class="btn btn-info btn-circle"><i class="fas fa-print"></i></a></td>
+                                                <td><a href="<?php echo base_url() . 'Student/studentDetail/' . $student['id'] ?>" class="btn btn-info btn-circle"><i class="fas fa-eye"></i></a></td>
                                             </tr>
                                         <?php } ?>
                                     </tbody>
