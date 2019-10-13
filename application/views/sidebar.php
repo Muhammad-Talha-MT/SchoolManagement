@@ -87,6 +87,27 @@
         </div>
     </li>
 
+
+
+    <!-- Users -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsers" aria-expanded="true" aria-controls="collapseUsers">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Users</span>
+        </a>
+        <div id="collapseUsers" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Users</h6>
+                <a class="collapse-item" href="<?php echo base_url() . 'Users/addUser' ?>">Add Users</a>
+                <a class="collapse-item" href="<?php echo base_url() . 'Users' ?>">View Users</a>
+            </div>
+        </div>
+    </li>
+
+
+
+
+
     <!-- Student -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseStudents" aria-expanded="true" aria-controls="collapsePages">
@@ -98,11 +119,22 @@
                 <h6 class="collapse-header">Student</h6>
                 <a class="collapse-item" href="<?php echo base_url() . 'Student/admission' ?>">New Admission</a>
                 <a class="collapse-item" href="<?php echo base_url() . 'Student' ?>">Students</a>
-                <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                <div class="collapse-divider"></div>
-                <h6 class="collapse-header">Other Pages:</h6>
-                <a class="collapse-item" href="404.html">404 Page</a>
-                <a class="collapse-item" href="blank.html">Blank Page</a>
+            </div>
+        </div>
+    </li>
+
+
+    <!-- Class -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClasses" aria-expanded="true" aria-controls="collapseClasses">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Classes</span>
+        </a>
+        <div id="collapseClasses" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Classes</h6>
+                <a class="collapse-item" href="<?php echo base_url() . 'Classes/addClass' ?>">Add Classes</a>
+                <a class="collapse-item" href="<?php echo base_url() . 'Classes' ?>">View Classes</a>
             </div>
         </div>
     </li>
