@@ -111,7 +111,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSubject" aria-expanded="true" aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder"></i>
-            <span>Subject</span>
+            <span>Subject Data</span>
         </a>
         <div id="collapseSubject" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
@@ -123,6 +123,21 @@
         </div>
     </li>
 
+    <!--Teacher-->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTeacher" aria-expanded="true" aria-controls="collapsePages">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Teacher Data</span>
+        </a>
+        <div id="collapseTeacher" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Teacher</h6>
+                <a class="collapse-item" href="<?php echo base_url() . 'Teacher/addTeacher' ?>">Add Teacher</a>
+                <a class="collapse-item">View Teachers</a>
+                <div class="collapse-divider"></div>
+            </div>
+        </div>
+    </li>
 
 
     <!-- Nav Item - Charts -->

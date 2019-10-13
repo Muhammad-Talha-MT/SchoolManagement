@@ -53,6 +53,7 @@
                                         <tr>
                                             <th>SubjectName</th>
                                             <th>Total Marks</th>
+                                            <th>ClassId</th>
                                             <th>Edit
                                             </th>
                                             <th>Delete</th>
@@ -63,6 +64,7 @@
                                         <tr>
                                             <th>SubjectName</th>
                                             <th>Total Marks</th>
+                                            <th>ClassId</th>
                                             <th>Edit
                                             </th>
                                             <th>Delete</th>
@@ -76,6 +78,9 @@
                                                 </td>
                                                 <td>
                                                     <?php echo $subject['totalMarks'] ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $subject['classId'] ?>
                                                 </td>
                                                 <td> <a href="<?php echo base_url() . 'Subject/edit/' . $subject['id'] ?>" class="btn btn-success btn-circle"><i class="fas fa-edit"></i></a></td>
                                                 <td> <a href="<?php echo base_url() . 'Subject/delete/' . $subject['id'] ?>" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></a></td>
