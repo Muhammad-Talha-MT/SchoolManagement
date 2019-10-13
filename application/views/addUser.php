@@ -22,28 +22,25 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Edit Class</h1>
+                    <h1 class="h3 mb-4 text-gray-800">Add User</h1>
                     <div class="border-left-primary">
                         <div class="container">
-                            <form method="POST" action="<?php echo base_url() . 'Classes/showEdit/' . $class['id'] ?>">
+                            <form method="POST" action="<?php echo base_url() . 'users/addNewUser' ?>">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="inputEmail4">Class Name</label>
-                                        <input class="form-control" id="className" placeholder="Name" name="className" required value="<?php echo set_value('className', $class['className']); ?>">
+                                        <label for="inputEmail4">User Name</label>
+                                        <input class="form-control" id="userName" placeholder="Enter User Name" name="userName" required>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="inputPassword4">Monthly Fee</label>
-                                        <input class="form-control" id="fee" name="fee" placeholder="Monthly Fee (Integer Value)" pattern="\d+" required value="<?php echo set_value('fee', $class['fee']); ?>">
-                                    </div>
-                                </div> <button type="submit" class="btn btn-primary ">Done</button>
-                                <button type="reset" class="btn btn-secondary active" onclick="window.location.href = '<?php echo base_url() . '.Classes.' ?>';">Cancel</button>
+                                        <label for="inputPassword4">Password</label>
+                                        <input class="form-control" id="password" placeholder="Enter Password" name="password" minlength="6" required> </div>
+                                </div> <button type="submit" class="btn btn-primary">Save</button>
+                                <button class="btn btn-secondary active" onclick="window.location.href = '<?php echo base_url() . '.Users.' ?>';">Cancel</button>
                             </form>
                         </div>
                     </div>
-
                 </div>
                 <br />
-
                 <?php
                 if (isset($_SESSION['success'])) {
                     echo  "<span class='alert alert-success'>" . $_SESSION['success'] . "</span>";
