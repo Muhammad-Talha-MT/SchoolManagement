@@ -26,7 +26,6 @@
                     <div class="border-left-primary">
 
 
-
                         <div class="container">
                             <form method="POST" action="<?php echo base_url() . 'subject/addNewSubject' ?>">
                                 <div class="form-row">
@@ -37,6 +36,24 @@
                                     <div class="form-group col-md-6">
                                         <label for="inputPassword4">Total Marks</label>
                                         <input class="form-control" id="subjectMarks" placeholder="Marks" name="subjectMarks" required> </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="inputCity">Class</label>
+                                        <select class="form-control" name="class" required>
+                                            <option>----Class----</option>
+                                            <option value="0">PG</option>
+                                            <option value="1">Nursery</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="inputCity">Class</label>
+                                        <select class="form-control" name="teacher" required>
+                                            <option>----Teacher----</option>
+                                            <option value="0">Ahmad</option>
+                                            <option value="1">Ali</option>
+                                        </select>
+                                    </div>
+                                    <br />
+                                    <br />
                                 </div> <button type="submit" class="btn btn-primary ">Done</button>
                             </form>
 
