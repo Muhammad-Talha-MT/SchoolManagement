@@ -43,7 +43,7 @@
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label for="inputCity">Class</label>
-                                        <select class="form-control" name="class" required >
+                                        <select class="form-control" name="class" required>
                                             <option>----Class----</option>
                                             <option value="0">PG</option>
                                             <option value="1">Nursery</option>

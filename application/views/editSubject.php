@@ -37,6 +37,25 @@
                                     <div class="form-group col-md-6">
                                         <label for="inputPassword4">Total Marks</label>
                                         <input class="form-control" id="subjectMarks" placeholder="Marks" name="subjectMarks" required value="<?php echo set_value('subjectMarks', $subject['totalMarks']); ?>"> </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="inputCity">Class</label>
+                                        <select class="form-control" name="class" required>
+                                            <option>----Class----</option>
+                                            <option value="0">PG</option>
+                                            <option value="1">Nursery</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="inputCity">Class</label>
+                                        <select class="form-control" name="teacher" required>
+                                            <option>----Teacher----</option>
+                                            <option value="0">Ahmad</option>
+                                            <option value="1">Ali</option>
+                                        </select>
+                                    </div>
+                                    <br />
+                                    <br />
                                 </div> <button type="submit" class="btn btn-primary ">Done</button>
                             </form>
 
