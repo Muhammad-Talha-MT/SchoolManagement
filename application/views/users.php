@@ -21,19 +21,16 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-                    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Subjects</h1>
-                    <p class="mb-4">This is all Subject Data of School.</p>
+                    <h1 class="h3 mb-2 text-gray-800">Users</h1>
+                    <p class="mb-4">This is Data of all Users in the School.</p>
                     <div class="">
-                        <a href="<?php echo base_url() . 'Subject/addSubjectScreen' ?>" class="btn btn-primary btn-icon-split">
+                        <a href="<?php echo base_url() . 'Users/addUser' ?>" class="btn btn-primary btn-icon-split">
                             <span class="icon text-white-50">
                                 <i class="fas fa-plus right"></i>
                             </span>
-                            <span class="text">New Subject</span>
+                            <span class="text">Add New User</span>
                         </a>
                     </div><br>
                     <!-- DataTales Example -->
@@ -51,39 +48,36 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>SubjectName</th>
-                                            <th>Total Marks</th>
-                                            <th>ClassId</th>
-                                            <th>Edit
-                                            </th>
+                                            <th>User Name</th>
+                                            <th>Password</th>
+                                            <th>Date Created</th>
+                                            <th>Edit</th>
                                             <th>Delete</th>
-
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>SubjectName</th>
-                                            <th>Total Marks</th>
-                                            <th>ClassId</th>
-                                            <th>Edit
-                                            </th>
+                                            <th>User Name</th>
+                                            <th>Password</th>
+                                            <th>Date Created</th>
+                                            <th>Edit</th>
                                             <th>Delete</th>
                                         </tr>
                                     </tfoot>
-                                    <?php if (!empty($subjects)) {
-                                        foreach ($subjects as $subject) { ?>
+                                    <?php if (!empty($users)) {
+                                        foreach ($users as $user) { ?>
                                             <tr>
                                                 <td>
-                                                    <?php echo $subject['subjectName'] ?>
+                                                    <?php echo $user['userName'] ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $subject['totalMarks'] ?>
+                                                    <?php echo $user['password'] ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $subject['classId'] ?>
+                                                    <?php echo $user['createdDate'] ?>
                                                 </td>
-                                                <td> <a href="<?php echo base_url() . 'Subject/edit/' . $subject['id'] ?>" class="btn btn-success btn-circle"><i class="fas fa-edit"></i></a></td>
-                                                <td> <a href="<?php echo base_url() . 'Subject/delete/' . $subject['id'] ?>" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></a></td>
+                                                <td> <a href="<?php echo base_url() . 'Users/edit/' . $user['id'] ?>" class="btn btn-success btn-circle"><i class="fas fa-edit"></i></a></td>
+                                                <td> <a href="<?php echo base_url() . 'Users/delete/' . $user['id'] ?>" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></a></td>
                                             </tr>
                                         <?php
                                             }
