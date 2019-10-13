@@ -35,7 +35,7 @@
                                         <label for="inputPassword4">Password</label>
                                         <input class="form-control" id="password" placeholder="Enter Password" name="password" minlength="6" required> </div>
                                 </div> <button type="submit" class="btn btn-primary">Save</button>
-                                <button class="btn btn-secondary active" onclick="window.location.href = '<?php echo base_url() . '.Users.' ?>';">Cancel</button>
+                                <button type="reset" class="btn btn-secondary active" onclick="window.location.href = '<?php echo base_url() . '.Users.' ?>';">Cancel</button>
                             </form>
                         </div>
                     </div>
