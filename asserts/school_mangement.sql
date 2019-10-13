@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 12, 2019 at 09:17 AM
+-- Generation Time: Oct 13, 2019 at 10:49 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -70,17 +70,28 @@ CREATE TABLE `tbfee` (
 
 CREATE TABLE `tbstudent` (
   `id` int(110) NOT NULL,
+  `regNumber` varchar(255) NOT NULL,
+  `picture` longtext NOT NULL,
   `studentName` varchar(255) NOT NULL,
   `fatherName` varchar(255) NOT NULL,
   `studentCnic` varchar(255) NOT NULL,
   `fatherCnic` varchar(255) NOT NULL,
   `dob` date NOT NULL,
+  `class` int(110) NOT NULL,
   `gender` varchar(255) NOT NULL,
   `cellNumber` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
   `admissionBy` int(110) NOT NULL,
-  `admissionDate` date NOT NULL
+  `admissionDate` date NOT NULL,
+  `yearOfAdmission` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbstudent`
+--
+
+INSERT INTO `tbstudent` (`id`, `regNumber`, `picture`, `studentName`, `fatherName`, `studentCnic`, `fatherCnic`, `dob`, `class`, `gender`, `cellNumber`, `address`, `admissionBy`, `admissionDate`, `yearOfAdmission`) VALUES
+(17, '2019-PG-1', 'banner-012.jpg', 'Talha', 'Ahmad', '1234567890123', '2222', '2019-10-23', 0, 'Male', '12345678909', 'mehar chowk jail road lahore', 1, '2019-10-12', 2019);
 
 -- --------------------------------------------------------
 
@@ -92,8 +103,18 @@ CREATE TABLE `tbsubject` (
   `id` int(110) NOT NULL,
   `subjectName` varchar(255) NOT NULL,
   `classId` int(100) NOT NULL,
-  `totalMarks` int(100) NOT NULL
+  `totalMarks` int(100) NOT NULL,
+  `teacherId` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbsubject`
+--
+
+INSERT INTO `tbsubject` (`id`, `subjectName`, `classId`, `totalMarks`, `teacherId`) VALUES
+(3, 'Islamiate', 1, 100, 1),
+(4, 'Islamiate', 1, 100, 1),
+(5, 'English', 0, 100, 1);
 
 -- --------------------------------------------------------
 
@@ -106,6 +127,22 @@ CREATE TABLE `tbsubjectresult` (
   `subjectId` int(100) NOT NULL,
   `studentId` int(100) NOT NULL,
   `obtainedMarks` int(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbteacher`
+--
+
+CREATE TABLE `tbteacher` (
+  `id` int(100) NOT NULL,
+  `teacherName` varchar(255) NOT NULL,
+  `pay` int(100) NOT NULL,
+  `specialSubject` varchar(100) NOT NULL,
+  `appointedDate` date NOT NULL,
+  `checkInTime` time NOT NULL,
+  `checkOutTime` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -162,6 +199,12 @@ ALTER TABLE `tbsubjectresult`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tbteacher`
+--
+ALTER TABLE `tbteacher`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbuser`
 --
 ALTER TABLE `tbuser`
@@ -193,18 +236,24 @@ ALTER TABLE `tbfee`
 -- AUTO_INCREMENT for table `tbstudent`
 --
 ALTER TABLE `tbstudent`
-  MODIFY `id` int(110) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(110) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tbsubject`
 --
 ALTER TABLE `tbsubject`
-  MODIFY `id` int(110) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(110) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbsubjectresult`
 --
 ALTER TABLE `tbsubjectresult`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbteacher`
+--
+ALTER TABLE `tbteacher`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
 
 --
