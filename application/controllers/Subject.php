@@ -20,13 +20,7 @@ class Subject extends CI_Controller
         $formArray['totalMarks'] = $this->input->post('subjectMarks');
         $formArray['classId'] = 1;
         $formArray['teacherId'] = 1;
-        $l = $this->Subject_model->addUser($formArray);
-        if ($l == true) {
-            $this->session->set_flashdata('success', 'Record Successfully save');
-        } else {
-            $this->session->set_flashdata('success', 'Record Already Exist');
-        }
-
+        $this->Subject_model->addUser($formArray);
         redirect(base_url() . 'Subject');
     }
     function showEdit($subjectId)

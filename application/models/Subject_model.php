@@ -5,14 +5,8 @@ class Subject_Model extends CI_Model
     {
         // print_r($formArray);
         // die();
-        $this->db->where('subjectName', $formArray['subjectName']);
-        $q = $this->db->get('tbSubject');
-        if (!$q) {
-            return false;
-        } else {
-            $this->db->insert('tbSubject', $formArray);
-            return true;
-        }
+        $this->db->insert('tbSubject', $formArray);
+        return true;
     }
     function getSubject()
     {
