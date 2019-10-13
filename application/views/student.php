@@ -48,6 +48,7 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
+                                            <th>Picture</th>
                                             <th>Registration No.</th>
                                             <th>Student Name</th>
                                             <th>Father Name</th>
@@ -55,10 +56,12 @@
                                             <th>Gender</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
+                                            <th>Print Detail</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
+                                            <th>Picture</th>
                                             <th>Registration No.</th>
                                             <th>Student Name</th>
                                             <th>Father Name</th>
@@ -66,11 +69,13 @@
                                             <th>Gender</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
+                                            <th>Print Detail</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         <?php foreach ($studentList as $student) { ?>
                                             <tr>
+                                                <td><img src="<?php echo base_url() . 'upload/' . $student['picture']; ?>" alt="No Picture"></td>
                                                 <td><?php echo $student['regNumber']; ?></td>
                                                 <td><?php echo $student['studentName']; ?></td>
                                                 <td><?php echo $student['fatherName']; ?></td>
@@ -78,6 +83,7 @@
                                                 <td><?php echo $student['gender']; ?></td>
                                                 <td><a href="<?php echo base_url() . 'Student/goToEditStudent/' . $student['id'] ?>" class="btn btn-success btn-circle"><i class="fas fa-edit"></i></a></td>
                                                 <td><a href="<?php echo base_url() . 'Student/deleteStudent/' . $student['id'] ?>" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></a></td>
+                                                <td><a href="<?php echo base_url() . 'Student/deleteStudent/' . $student['id'] ?>" class="btn btn-info btn-circle"><i class="fas fa-print"></i></a></td>
                                             </tr>
                                         <?php } ?>
                                     </tbody>
