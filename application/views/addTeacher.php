@@ -27,25 +27,26 @@
                         <div class="container">
                             <form method="POST" enctype="multipart/form-data" class="needs-validation">
                                 <div class="form-row">
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-12">
                                         <label for="studentName">Teacher Name</label>
                                         <input type="text" class="form-control" id="teacherName" placeholder="Teacher Name" name="teacherName">
                                     </div>
+
+                                </div>
+                                <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="fatherName">Pay</label>
                                         <input type="text" class="form-control" id="teacherPay" placeholder="Teacher Pay" name="teacherPay">
                                     </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-10">
+                                    <div class="form-group col-md-6">
                                         <label for="inputAddress">Special Subject</label>
                                         <input type="text" class="form-control" id="specialSubject" placeholder="Subject" name="specialSubject">
                                     </div>
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-3">
                                         <label for="appointedDate">Appointed Date</label>
                                         <input class="form-control" type="date" name="appointedDate" required data-date="" data-date-format="DD MM YYYY">
                                     </div>
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-3">
                                         <label for="inputCity">Gender</label>
                                         <select class="form-control" name="gender" required>
                                             <option>----Gender----</option>
@@ -53,15 +54,16 @@
                                             <option value="Female">Female</option>
                                         </select>
                                     </div>
+                                    <div class="form-group  col-md-3">
+                                        <label for="inputMDEx1">Choose CheckIn time</label>
+                                        <input type="time" id="checkInTime" class="form-control" name="checkInTime">
+                                    </div>
+                                    <div class="form-group  col-md-3">
+                                        <label for="inputMDEx1">Choose CheckOut time</label>
+                                        <input type="time" id="checkOutTime" class="form-control" name="checkOutTime">
+                                    </div>
                                 </div>
-                                <div class="form-group  col-md-6">
-                                    <label for="inputMDEx1">Choose CheckIn time</label>
-                                    <input type="time" id="checkInTime" class="form-control" name="checkInTime">
-                                </div>
-                                <div class="form-group  col-md-6">
-                                    <label for="inputMDEx1">Choose CheckOut time</label>
-                                    <input type="time" id="checkOutTime" class="form-control" name="checkOutTime">
-                                </div>
+
 
                                 <div class="form-row ">
                                     <div class="form-group col-md-3">
