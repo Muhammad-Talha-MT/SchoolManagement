@@ -164,8 +164,8 @@
         <div id="collapseTeacher" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Teacher</h6>
-                <a class="collapse-item" href="<?php echo base_url() . 'Teacher/addTeacher' ?>">Add Teacher</a>
-                <a class="collapse-item">View Teachers</a>
+                <a class="collapse-item" href="<?php echo base_url() . 'Teacher/createTeacher' ?>">Add Teacher</a>
+                <a class="collapse-item" href="<?php echo base_url() . 'Teacher/showTeacher' ?>">View Teachers</a>
                 <div class="collapse-divider"></div>
             </div>
         </div>
