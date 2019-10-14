@@ -7,7 +7,6 @@ class Fee_model extends CI_model
         $this->db->from('tbStudent');
         $query = $this->db->get();
         $result = $query->result_array();
-        
         return $result;
     }
     function checkRecord($std)
@@ -40,19 +39,28 @@ class Fee_model extends CI_model
         }
         return $std;
     }
-    function pay()
+    function pay($data)
     {
         $this->db->insert('tbfee',$data);
     }
     function getData($id)
     {
-        $this->db->select('studentName,regNumber,class');
-        $this->db->from('tbfee');
-        $this->db->where('studentId=',$std['id']);
+        $this->db->select('*');
+        $this->db->from('tbstudent');
+        $this->db->where('id=',$id);
         $query = $this->db->get();
         $data=array();
-        $result=$query()->row();
-        $data['studentId']=$result->studentName;
+        $result=$query->row();
+        $data['studentName']=$result->studentName;
         $data['regNumber']=$result->regNumber;
+        $data['classId']=$result->class;
+        $this->db->select('className,fee');
+        $this->db->from('tbclass');
+        $this->db->where('id=',$data['classId']);
+        $query = $this->db->get();
+        $result=$query->row();
+        $data['className']=$result->className;
+        $data['fee']=$result->fee;
+        return $data;
     }
 }

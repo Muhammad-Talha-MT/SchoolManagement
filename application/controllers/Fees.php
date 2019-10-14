@@ -22,11 +22,12 @@ class Fees extends CI_Controller
     {
         $this->load->model('Fee_model');
         $data=$this->Fee_model->getdata($id);
-        // $data['studentId']=$_SESSION['id'];
-        // $data['classId']=$_SESSION['classId'];
-        // $data['month']=date('F');
-        // $data['recievedDate']=date('F j, y');
-
+        $fee=array();
+        $fee['classId']=$data['classId'];
+        $fee['studentId']=$id;
+        $fee['month']=date('F');
+        $fee['recievedDate']=date('F j, y');
+        $this->Fee_model->pay($fee);
         $this->index();
     }
 }
