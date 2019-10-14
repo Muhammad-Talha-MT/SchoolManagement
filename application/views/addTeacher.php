@@ -22,18 +22,15 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Student Admission</h1>
+                    <h1 class="h3 mb-4 text-gray-800">New Teacher</h1>
                     <div class="border-left-primary">
                         <div class="container">
-                            <form method="POST" enctype="multipart/form-data" class="needs-validation">
+                            <form method="POST" enctype="multipart/form-data" class="needs-validation" action="<?php echo base_url() . 'Teacher/addTeacher' ?>">
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
                                         <label for="studentName">Teacher Name</label>
                                         <input type="text" class="form-control" id="teacherName" placeholder="Teacher Name" name="teacherName">
                                     </div>
-
-                                </div>
-                                <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="fatherName">Pay</label>
                                         <input type="text" class="form-control" id="teacherPay" placeholder="Teacher Pay" name="teacherPay">
@@ -42,6 +39,9 @@
                                         <label for="inputAddress">Special Subject</label>
                                         <input type="text" class="form-control" id="specialSubject" placeholder="Subject" name="specialSubject">
                                     </div>
+                                </div>
+                                <div class="form-row">
+
                                     <div class="form-group col-md-3">
                                         <label for="appointedDate">Appointed Date</label>
                                         <input class="form-control" type="date" name="appointedDate" required data-date="" data-date-format="DD MM YYYY">
@@ -71,6 +71,7 @@
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Done</button>
+                                <button type="reset" class="btn btn-secondary active" onclick="window.location.href = '<?php echo base_url() . 'Teacher/showTeacher' ?>';">Cancel</button>
                             </form>
                         </div>
                     </div>

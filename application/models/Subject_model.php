@@ -24,4 +24,15 @@ class Subject_Model extends CI_Model
         $this->db->where('id', $subjectId);
         $this->db->delete('tbSubject');
     }
+    function showClasses()
+    {
+        return $this->db->get('tbclass')->result_array();
+    }
+    function showTeacher()
+    {
+        $this->db->select('teacherName');
+        $this->db->from('tbteacher');
+        $query = $this->db->get()->result_array();
+        return $query;
+    }
 }

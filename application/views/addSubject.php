@@ -40,21 +40,26 @@
                                         <label for="inputCity">Class</label>
                                         <select class="form-control" name="class" required>
                                             <option>----Class----</option>
-                                            <option value="0">PG</option>
-                                            <option value="1">Nursery</option>
+                                            <?php foreach ($class as $c) { ?>
+                                                <option value="<?php echo $c['id']; ?>"><?php echo $c['className']; ?></option>
+
+                                            <?php  } ?>
                                         </select>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="inputCity">Class</label>
                                         <select class="form-control" name="teacher" required>
                                             <option>----Teacher----</option>
-                                            <option value="0">Ahmad</option>
-                                            <option value="1">Ali</option>
+                                            <?php foreach ($teacher as $t) { ?>
+                                                <option value="<?php echo $c['id']; ?>"><?php echo $t['teacherName']; ?></option>
+
+                                            <?php  } ?>
                                         </select>
                                     </div>
                                     <br />
                                     <br />
                                 </div> <button type="submit" class="btn btn-primary ">Done</button>
+                                <button type="reset" class="btn btn-secondary active" onclick="window.location.href = '<?php echo base_url() . 'Subject' ?>';">Cancel</button>
                             </form>
 
                         </div>

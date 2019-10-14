@@ -10,7 +10,10 @@ class Subject extends CI_Controller
     }
     function addSubjectScreen()
     {
-        $this->load->view('addSubject');
+        $this->load->model('Subject_model');
+        $data['class'] = $this->Subject_model->showClasses();
+        $data['teacher'] = $this->Subject_model->showTeacher();
+        $this->load->view('addSubject', $data);
     }
     public function addNewSubject()
     {
