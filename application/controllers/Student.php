@@ -136,4 +136,9 @@ class Student extends CI_Controller
         $this->Student_model->deleteStudent($id);
         redirect(base_url() . 'Student');
     }
+    function printStudent($id)
+    {
+        $student = $this->Student_model->getStudentById($id);
+        $this->load->view('printStudentDetail', $student);
+    }
 }

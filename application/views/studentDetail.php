@@ -28,13 +28,13 @@
                             <form method="POST" action="" class="needs-validation">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <a href="#" class="btn btn-danger btn-icon-split">
+                                        <a href="<?php echo base_url() . 'Student' ?>" class="btn btn-danger btn-icon-split">
                                             <span class="icon text-white-50">
                                                 <i class="fas fa-arrow-left"></i>
                                             </span>
                                             <span class="text">Cancel</span>
                                         </a>
-                                        <a href="#" class="btn btn-info btn-icon-split">
+                                        <a href="<?php echo base_url() . 'Student/printStudent/' . $id ?>" class="btn btn-info btn-icon-split">
                                             <span class="icon text-white-50">
                                                 <i class="fas fa-print"></i>
                                             </span>
