@@ -13,21 +13,17 @@ class Fees extends CI_Controller
         $data['fee'] = $fee;
         $this->load->view('Fees', $data);
     }
-    function s()
-    {
-        print_r("a,sdhas");
-        die();
-    }
     function pay_fee($id)
     {
         $this->load->model('Fee_model');
         $data=$this->Fee_model->getdata($id);
+        // $data variable contain all data needed to create pdf
         $fee=array();
         $fee['classId']=$data['classId'];
         $fee['studentId']=$id;
         $fee['month']=date('F');
-        $fee['recievedDate']=date('F j, y');
+        $fee['recievedDate']=date('Y-m-d');
         $this->Fee_model->pay($fee);
-        $this->index();
+        redirect(base_url() . 'fees');
     }
 }

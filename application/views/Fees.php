@@ -29,7 +29,7 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Students Data</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Fees Data</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -62,8 +62,16 @@
                                             <td><?php echo $f['month']; ?></td>
                                             <td><?php echo $f['amount']; ?></td>
                                             <td><?php echo $f['Date']; ?></td>
+                                            <?php if ($f["Date"]=='none'){ ?>
                                             <td><a href="<?php echo base_url() . '/Fees/pay_fee/'.$f['id']?>"
-                                                    class="btn btn-info btn-circle"><i class="fas fa-eye"></i></a></td>
+                                                    class="btn btn-info btn-circle"
+                                                    onclick="return confirm('Are you sure?');"><i
+                                                        class="fas fa-check"></i></a>
+                                            </td>
+                                            <?php } else {?>
+                                            <td><a class="btn btn-success btn-circle disabled"><i
+                                                        class="fas fa-check"></i></a></td>
+                                            <?php } ?>
                                         </tr>
                                         <?php } ?>
                                     </tbody>

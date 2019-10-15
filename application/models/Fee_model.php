@@ -22,7 +22,7 @@ class Fee_model extends CI_model
         $std['classId']=-1;
         foreach ($a as $row) 
         {            
-            if($row->month==date('F'))
+            if($row['month']==date('F'))
             {
                 $std['Date']=$row['recievedDate'];
             }
