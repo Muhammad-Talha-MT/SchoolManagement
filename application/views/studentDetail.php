@@ -86,10 +86,7 @@
                                         <label for="dob">Date of Birth</label>
                                         <input class="form-control" type="text" name="dob" required="" data-date="" data-date-format="DD MM YYYY" value="<?php echo $dob; ?>" disabled>
                                     </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="inputCity">Gender</label>
-                                        <input class="form-control" type="text" name="gender" required="" data-date="" data-date-format="DD MM YYYY" value="<?php echo $gender; ?>" disabled>
-                                    </div>
+
                                 </div>
 
                             </form>

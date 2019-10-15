@@ -86,7 +86,7 @@
                                                 <td><?php echo $teacher['gender']; ?></td>
                                                 <td><a class="btn btn-success btn-circle" href="<?php echo base_url() . 'Teacher/showEdit/' . $teacher['id'] ?>"><i class="fas fa-edit"></i></a></td>
                                                 <td><a class="btn btn-danger btn-circle" href="<?php echo base_url() . 'Teacher/delete/' . $teacher['id'] ?>"><i class="fas fa-trash"></i></a></td>
-                                                <td><a class="btn btn-info btn-circle"><i class="fas fa-print"></i></a></td>
+                                                <td><a href="<?php echo base_url() . 'Teacher/getTeacherDetail/' . $teacher['id'] ?>" class="btn btn-info btn-circle"><i class="fas fa-eye"></i></a></td>
                                             </tr>
                                         <?php } ?>
                                     </tbody>

@@ -52,6 +52,16 @@ class Teacher extends CI_Controller
         $this->Teacher_model->delete($id);
         redirect(base_url() . 'Teacher/showTeacher');
     }
+    function getTeacherDetail($id)
+    {
+        $data = $this->Teacher_model->editTeacher($id);
+        $this->load->view('DetailTeacher', $data);
+    }
+    function printTeacher($id)
+    {
+        $data = $this->Teacher_model->editTeacher($id);
+        $this->load->view('PrintTeacherDetail', $data);
+    }
     function pic_upload()
     {
         $config['upload_path'] = './upload/';

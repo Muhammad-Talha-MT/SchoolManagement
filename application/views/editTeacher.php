@@ -22,7 +22,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Student Admission</h1>
+                    <h1 class="h3 mb-4 text-gray-800">Edit Teacher</h1>
                     <div class="border-left-primary">
                         <div class="container">
                             <form method="POST" enctype="multipart/form-data" class="needs-validation" action="<?php echo base_url() . 'Teacher/editTeacher/' . $id; ?>">
@@ -63,6 +63,7 @@
                                     <input type="time" id="checkOutTime" class="form-control" name="checkOutTime" value="<?php echo $checkOutTime; ?>">
                                 </div>
                                 <button type="submit" class="btn btn-primary">Done</button>
+                                <button type="reset" class="btn btn-secondary active" onclick="window.location.href = '<?php echo base_url() . 'Teacher/showTeacher' ?>';">Cancel</button>
                             </form>
                         </div>
                     </div>
