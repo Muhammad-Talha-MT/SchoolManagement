@@ -42,4 +42,19 @@ class Fees extends CI_Controller
         $this->Fee_model->pay($fee);
         redirect(base_url() . 'fees');
     }
+    function print_fee($d)
+    {
+        $this->load->model('Class_model');
+        $values=explode('_',urldecode($d));
+        $fee=array();
+        $fee['regNumber']=$values[0];
+        $fee['studentName']=$values[1];
+        $fee['amount']=$values[2];
+        $fee['class']=$this->Class_model->getClassById($values[3])['className'];
+        $fee['month']=date('F');
+        $fee['recievedDate']=date('Y-m-d');
+        $fee['back_url']=$values[4];
+        $data['fee']=$fee;
+        $this->load->view('print_fee',$data);
+    }
 }

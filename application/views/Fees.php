@@ -42,6 +42,7 @@
                                             <th>Amount</th>
                                             <th>Date</th>
                                             <th>Pay</th>
+                                            <th>Print</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -52,6 +53,7 @@
                                             <th>Amount</th>
                                             <th>Date</th>
                                             <th>Pay</th>
+                                            <th>Print</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -63,15 +65,24 @@
                                             <td><?php echo $f['amount']; ?></td>
                                             <td><?php echo $f['Date']; ?></td>
                                             <?php if ($f["Date"]=='none'){ ?>
-                                            <td><a href="<?php echo base_url() . '/Fees/pay_fee/'.urlencode($f['id'].'_'.$f['regNumber'].'_'.$f['studentName'].'_'. $f['amount'].'_'.$f['classId'])?>"
+                                            <td><a href="<?php echo base_url() . 'Fees/pay_fee/'.urlencode($f['id'].'_'.$f['regNumber'].'_'.$f['studentName'].'_'. $f['amount'].'_'.$f['classId'])?>"
                                                     class="btn btn-info btn-circle"
                                                     onclick="return confirm('Are you sure?');"><i
                                                         class="fas fa-check"></i></a>
                                             </td>
+                                            <td>
+                                                <a class="btn btn-info btn-circle disabled"><i
+                                                        class="fas fa-print"></i></a>
+                                            </td>
                                             <?php } else {?>
                                             <td><a class="btn btn-success btn-circle disabled"><i
                                                         class="fas fa-check"></i></a></td>
+                                            <td>
+                                                <a href="<?php echo base_url() . 'Fees/print_fee/'.urlencode($f['regNumber'].'_'.$f['studentName'].'_'. $f['amount'].'_'.$f['classId'].'_'.'Fees')?>"
+                                                    class="btn btn-info btn-circle"><i class="fas fa-print"></i></a>
+                                            </td>
                                             <?php } ?>
+
                                         </tr>
                                         <?php } ?>
                                     </tbody>
