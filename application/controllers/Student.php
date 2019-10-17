@@ -95,6 +95,8 @@ class Student extends CI_Controller
         $dataToSend['admissionBy'] = 1;
         $dataToSend['admissionDate'] = Date('Y-m-d');
         $dataToSend['yearOfAdmission'] = Date('Y');
+        $classid = $this->input->post('class');
+        $dataToSend['regNumber'] = $this->createRegNumber($classid);
         $this->Student_model->updateStudent($id, $dataToSend);
         $this->session->set_flashdata('success', 'Student is successfully updated');
         redirect(base_url() . 'Student');
