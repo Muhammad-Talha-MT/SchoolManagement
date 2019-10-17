@@ -63,7 +63,7 @@
                                             <td><?php echo $f['amount']; ?></td>
                                             <td><?php echo $f['Date']; ?></td>
                                             <?php if ($f["Date"]=='none'){ ?>
-                                            <td><a href="<?php echo base_url() . '/Fees/pay_fee/'.$f['id']?>"
+                                            <td><a href="<?php echo base_url() . '/Fees/pay_fee/'.urlencode($f['id'].'_'.$f['regNumber'].'_'.$f['studentName'].'_'. $f['amount'].'_'.$f['classId'])?>"
                                                     class="btn btn-info btn-circle"
                                                     onclick="return confirm('Are you sure?');"><i
                                                         class="fas fa-check"></i></a>

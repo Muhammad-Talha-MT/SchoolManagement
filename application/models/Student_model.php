@@ -18,7 +18,14 @@ class Student_model extends CI_Model
         $classCount = $this->db->where(['class' => $classId, 'yearOfAdmission' => Date('Y')])->from("tbStudent")->count_all_results();
         return $classCount;
     }
-
+    function getStudents_Class()
+    {
+        $this->db->select('id,regNumber,studentName,class');
+        $this->db->from('tbStudent');
+        $query = $this->db->get();
+        $result = $query->result_array();
+        return $result;
+    }
     function getStudents()
     {
         $this->db->select('*');

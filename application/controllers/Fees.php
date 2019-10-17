@@ -3,26 +3,42 @@ class Fees extends CI_Controller
 {
     function index()
     {
+        $this->load->model('Student_model');
         $this->load->model('Fee_model');
-        $students = $this->Fee_model->getStudents();
-        $fee=array();
+        $this->load->model('Class_model');
+        $students = $this->Student_model->getStudents_Class();
+        $fee_record=array();
         foreach ($students as $std) {
-            $a=$this->Fee_model->checkRecord($std);
-            array_push($fee, $a);
+            $fee=array();
+            $fee['id']=$std['id'];
+            $fee['regNumber']=$std['regNumber'];
+            $fee['studentName']=$std['studentName'];
+            $fee['classId']=$std['class'];
+            $a=$this->Fee_model->checkPaid_CurrentMonth($std['id']);
+            if(isset($a))
+            {
+                $fee['Date']=$a->recievedDate;
+            }
+            else
+            {
+                $fee['Date']="none";
+            }
+            $fee['amount']=$this->Class_model->getFee($fee['classId']);
+            $fee['month']=date('F');
+            array_push($fee_record, $fee);
         }
-        $data['fee'] = $fee;
+        $data['fee'] = $fee_record;
         $this->load->view('Fees', $data);
     }
-    function pay_fee($id)
+    function pay_fee($data)
     {
         $this->load->model('Fee_model');
-        $data=$this->Fee_model->getdata($id);
-        // $data variable contain all data needed to create pdf
+        $values=explode('_',urldecode($data));
         $fee=array();
-        $fee['classId']=$data['classId'];
-        $fee['studentId']=$id;
+        $fee['studentId']=$values[0];
         $fee['month']=date('F');
         $fee['recievedDate']=date('Y-m-d');
+        $fee['classId']=$values[4];
         $this->Fee_model->pay($fee);
         redirect(base_url() . 'fees');
     }
