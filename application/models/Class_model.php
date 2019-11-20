@@ -17,7 +17,7 @@ class Class_model extends CI_model
         $this->db->select('fee');
         $this->db->where('id',$id);
         $result=$this->db->get('tbclass')->row();
-        $result->fee;
+        return $result->fee;
     }
     function getClasses()
     {
