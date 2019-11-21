@@ -37,8 +37,8 @@
                             <?php  } ?>
                         </select>
                     </div>
-                    <button onclick="edit()" class="btn btn-secondary">Edit</button>
-                    <button id="save" class="btn btn-primary">save</button>
+                    <button id="edit" onclick="edit()" class="btn btn-secondary">Edit</button>
+                    <button id="save" class="btn btn-primary" style="display:none">save</button>
                     <!-- DataTales Example -->
                     <div id="main_data" class="card shadow mb-4">
                         <div class="card-header py-3">
@@ -106,6 +106,10 @@
         <?php require('foot.php'); ?>
         <script>
         function edit() {
+            var save = document.getElementById('save');
+            save.style.display = "";
+            var edit = document.getElementById('edit');
+            edit.style.display = "none";
             var inp = document.getElementsByTagName('input');
             for (var i = 0; i < inp.length; i++) {
                 if (inp[i].id == "marks") {
@@ -124,6 +128,10 @@
             })
             var data = getData();
             $("#save").click(function() {
+                var save = document.getElementById('save');
+                save.style.display = "none";
+                var edit = document.getElementById('edit');
+                edit.style.display = "";
                 var newData = getData();
                 var changed = new Array();
                 for (var i = 0; i < newData.length; i++) {
@@ -154,8 +162,18 @@
                     },
                 };
                 $.ajax(ajaxObj);
+                disableinputs();
             })
         })
+
+        function disableinputs() {
+            var inp = document.getElementsByTagName('input');
+            for (var i = 0; i < inp.length; i++) {
+                if (inp[i].id == "marks") {
+                    inp[i].disabled = true;
+                }
+            }
+        }
 
         function getData() {
             var filter, table, tr, td, i, txtValue;
