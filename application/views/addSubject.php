@@ -45,7 +45,6 @@
                                             <?php foreach ($class as $c) { ?>
                                             <option value="<?php echo $c['id']; ?>"><?php echo $c['className']; ?>
                                             </option>
-
                                             <?php  } ?>
                                         </select>
                                     </div>

@@ -23,6 +23,11 @@ class Class_model extends CI_model
     {
         return $this->db->get('tbclass')->result_array();
     }
+    function getClasses_Name()
+    {
+        $this->db->select('id,className');
+        return $this->db->get('tbclass')->result_array();
+    }
     function editClass($classId)
     {
         $this->db->where('id', $classId);
