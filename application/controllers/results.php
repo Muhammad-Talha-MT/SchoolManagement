@@ -34,7 +34,7 @@ class results extends CI_Controller
                             $std['totalmarks']=$subject['totalMarks'];
                             $std['subjectName']=$subject['subjectName'];
                             $std['subjectid']=$subject['id'];
-                            $std['obtainedmarks']=4;
+                            $std['obtainedmarks']=null;
                             $marks=$this->Results_model->getResult($std['studentid'],$std['subjectid']);
                             if(isset($marks))
                             {
@@ -55,16 +55,32 @@ class results extends CI_Controller
     {
         $this->load->model('Results_model');
         // $data = array(
-        //     'studentid' => 12,
-        //     'subjectid' => 21,
-        //     'obtainedmarks' => 12,
+        //     'studentid' => 3,
+        //     'subjectid' => 36,
+        //     'obtainedmarks' => 100002,
         // );
-        //$this->Results_model->add($data);
+        // //$this->Results_model->add($data);
+        // $id=$this->Results_model->getResultIndex($data['studentid'] , $data['subjectid']);
+        // if(isset($id))
+        // {
+        //     $data['id']=$id;
+        //     $this->Results_model->update($data);
+        // }
+        // print($marks);
         $data=$_POST['newData'];
         foreach ($data as $d)
         {
-            //$marks=$this->Results_model->getResult($d['studentid']);
-            $this->Results_model->add($d);
+            $id=$this->Results_model->getResultIndex($d['studentid'] , $d['subjectid']);
+            if(isset($id))
+            {
+                //update
+                $this->Results_model->update($d['obtainedmarks'],$id);
+            }
+            else
+            {
+                //insert
+                $this->Results_model->add($d);
+            }  
         }
     }
 }
