@@ -137,15 +137,16 @@
                         'leaves': $(this).closest('tr').find('.Leaves').val(),
                         'late': $(this).closest('tr').find('.Late').val(),
                     }
-                    //console.log(dataToSend);
+
+                    var box = $(this).closest('tr').find('.CalculatedPay');
+                    console.log("chage");
                     var ajaxObj = {
                         type: 'POST',
                         datatype: 'json',
                         url: '<?php echo base_url(); ?>TeacherPay/Calculate',
                         data: dataToSend,
                         success: function(r) {
-                            console.log(r);
-                            $(this).closest('tr').find("#CalculatedPay").value(r);
+                            box.val(r);
                         },
                         error: function() {
                             console.log("Failed");
