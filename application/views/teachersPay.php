@@ -82,18 +82,18 @@
 
                                                     <?php } ?>
 
-                                                    <?php if ($data['advance'] == NULL) { ?>
+                                                    <?php if ($data['leave'] == NULL) { ?>
                                                         <td><input type="text" class="form-control Leaves" name="Leaves" required></td>
                                                     <?php } else { ?>
                                                         <td><input type="text" class="form-control Leaves" name="Leaves" value='<?php echo $data['leave']; ?>' readonly required></td>
                                                     <?php } ?>
-                                                    <?php if ($data['advance'] == NULL) { ?>
+                                                    <?php if ($data['late'] == NULL) { ?>
                                                         <td><input type="text" class="form-control Late" name="Late" required></td>
                                                     <?php } else { ?>
                                                         <td><input type="text" class="form-control Late" name="Late" value='<?php echo $data['late']; ?>' readonly required></td>
                                                     <?php } ?>
-                                                    <?php if ($data['advance'] == NULL) { ?>
-                                                        <td><input type="text" class="form-control CalculatedPay" name="advance" readnoly required></td>
+                                                    <?php if ($data['calculatedPay'] == NULL) { ?>
+                                                        <td><input type="text" class="form-control CalculatedPay" name="CalculatedPay" readnoly required></td>
                                                     <?php } else { ?>
                                                         <td><input type="text" class="form-control CalculatedPay" name="CalculatedPay" readonly value='<?php echo $data['calculatedPay']; ?>' readonly required></td>
                                                     <?php } ?>
