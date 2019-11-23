@@ -73,10 +73,10 @@
                                                 <td><?php echo $data['id']; ?> <input class="Id" type='hidden' value='<?php echo $data['id']; ?>' required></td>
                                                 <td><?php echo $data['teacherName']; ?></td>
                                                 <td><?php echo $data['month']; ?></td>
-                                                <td><?php echo $data['pay']; ?> <input class="pay" type='hidden' value='<?php echo $data['pay']; ?>' required></td>
-                                                <td><input type="text" class="form-control Advance" name="Advance" id=' Advance' value="<?php echo $data['advance']; ?>" required></td>
-                                                <td><input type="text" class="form-control Leaves" name="Leaves" value="<?php echo $data['leave']; ?>" required></td>
-                                                <td><input type="text" class="form-control Late" name="Late" value="<?php echo $data['late']; ?>" required></td>
+                                                <td><?php echo $data['pay']; ?> <input class="pay" type='hidden' value='<?php echo $data['pay']; ?>'></td>
+                                                <td><input type="text" class="form-control Advance" name="Advance" id=' Advance' value="<?php echo $data['advance']; ?>"></td>
+                                                <td><input type="text" class="form-control Leaves" name="Leaves" value="<?php echo $data['leave']; ?>"></td>
+                                                <td><input type="text" class="form-control Late" name="Late" value="<?php echo $data['late']; ?>"></td>
                                                 <td><?php echo $data['calculatedPay']; ?></td>
                                                 <td><button type="submit" class="btn btn-primary calculate">Done</button></td>
                                                 <td><a href="<?php echo base_url() . 'TeacherPay/teacherDetail/' . $data['id'] ?>" class="btn btn-info btn-circle"><i class="fas fa-eye"></i></a></td>
@@ -114,6 +114,28 @@
                     }
                 }
             }
+
+            function validate_row(tr) {
+                var late = tr.find('.Late').val();
+                var leave = tr.find('.Leaves').val();
+                var advance = tr.find('.Advance').val();
+                if (late === '' || leave === '' || advance === '') {
+                    return false;
+                }
+                var str = "    ";
+                if (!late.replace(/\s/g, '').length || !advance.replace(/\s/g, '').length || !leave.replace(/\s/g, '').length) {
+                    return false
+                }
+                if (isNaN(advance) || isNaN(late) || isNaN(leave)) {
+                    return false;
+                }
+                late = Number(late);
+                leave = Number(leave);
+                if (late < 31 && leave < 31 && (late + leave) < 31) {
+                    return true;
+                }
+                return false;
+            }
             $(document).ready(function() {
                 disbableRows();
                 $('.calculate').click(function() {
@@ -125,7 +147,7 @@
                         'leaves': $(this).closest('tr').find('.Leaves').val(),
                         'late': $(this).closest('tr').find('.Late').val(),
                     }
-
+                    var flag = validate_row($(this).closest('tr'));
                     var box = $(this).closest('tr').find("td:eq(7)");
                     var ajaxObj = {
                         type: 'POST',
@@ -140,8 +162,11 @@
                             console.log("Failed");
                         },
                     };
-                    $.ajax(ajaxObj);
-
+                    if (flag) {
+                        $.ajax(ajaxObj);
+                    } else {
+                        window.alert("Error");
+                    }
                 });
             });
         </script>
