@@ -29,8 +29,6 @@ class TeacherPay extends CI_Controller
         $this->load->model('TeacherPay_model');
         $data['payData'] = $this->Teacher_model->getTeacher();
         $size = sizeof($data['payData']);
-        // print_r($size);
-        // die();
         for ($i = 0; $i < $size; $i++) {
             $data['payData'][$i]['month'] = Date('M');
             $data['payData'][$i]['leave'] = $this->TeacherPay_model->getTeacherLeaves($data['payData'][$i]['id']);
@@ -38,9 +36,6 @@ class TeacherPay extends CI_Controller
             $data['payData'][$i]['advance'] = $this->TeacherPay_model->getTeacherAdvance($data['payData'][$i]['id']);
             $data['payData'][$i]['calculatedPay'] = $this->TeacherPay_model->getTeacherCalculatedPay($data['payData'][$i]['id']);
         }
-        // "<pre>";
-        // print_r($data);
-        // die();
         $this->load->view("teachersPay", $data);
     }
     function teacherDetail($id)
