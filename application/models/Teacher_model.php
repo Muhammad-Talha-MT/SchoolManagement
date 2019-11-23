@@ -12,7 +12,7 @@ class Teacher_model extends CI_Model
     function editTeacher($teacherId)
     {
         $this->db->where('id', $teacherId);
-        return $this->db->get('tbteacher')->row();
+        return $this->db->get('tbteacher')->row_array();
     }
     function updateTeacher($id, $teacher)
     {

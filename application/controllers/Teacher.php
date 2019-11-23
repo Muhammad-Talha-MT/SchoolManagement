@@ -10,6 +10,7 @@ class Teacher extends CI_Controller
     {
         $this->load->view('addTeacher');
     }
+
     function addTeacher()
     {
         $data = array();
@@ -62,6 +63,7 @@ class Teacher extends CI_Controller
         $data = $this->Teacher_model->editTeacher($id);
         $this->load->view('PrintTeacherDetail', $data);
     }
+
     function pic_upload()
     {
         $config['upload_path'] = './upload/';
