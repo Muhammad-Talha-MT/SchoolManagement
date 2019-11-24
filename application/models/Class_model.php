@@ -5,9 +5,11 @@ class Class_model extends CI_model
     {
         $this->db->where('className', $formArray['className']);
         $q = $this->db->get('tbclass');
-        if (!$q) {
+        $count = $q->num_rows();
+        if ($count != 0) {
             return false;
         } else {
+
             $this->db->insert('tbclass', $formArray);
             return true;
         }

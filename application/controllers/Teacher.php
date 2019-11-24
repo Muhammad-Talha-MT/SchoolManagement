@@ -13,17 +13,30 @@ class Teacher extends CI_Controller
 
     function addTeacher()
     {
-        $data = array();
-        $data['teacherName'] = $this->input->post('teacherName');
-        $data['pay'] = $this->input->post("teacherPay");
-        $data['specialSubject'] = $this->input->post('specialSubject');
-        $data['appointedDate'] = $this->input->post('appointedDate');
-        $data['gender'] = $this->input->post('gender');
-        $data['checkInTime'] = $this->input->post('checkInTime');
-        $data['checkOutTime'] = $this->input->post('checkOutTime');
-        $data['picture'] = $this->pic_upload();
-        $this->Teacher_model->addTeacher($data);
-        redirect(base_url() . "Teacher/showTeacher");
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('teacherName', 'Teacher Name', 'required|alpha');
+        $this->form_validation->set_rules('teacherPay', 'Teacher Pay', 'required|numeric|greater_than[0]');
+        $this->form_validation->set_rules('specialSubject', 'Special Subject', 'required|alpha');
+        if ($this->form_validation->run() == True) {
+            if ($this->input->post('gender') > 0 && $this->input->post('checkInTime') < $this->input->post('checkOutTime')) {
+                $data = array();
+                $data['teacherName'] = $this->input->post('teacherName');
+                $data['pay'] = $this->input->post("teacherPay");
+                $data['specialSubject'] = $this->input->post('specialSubject');
+                $data['appointedDate'] = $this->input->post('appointedDate');
+                $data['gender'] = $this->input->post('gender');
+                $data['checkInTime'] = $this->input->post('checkInTime');
+                $data['checkOutTime'] = $this->input->post('checkOutTime');
+                $data['picture'] = $this->pic_upload();
+                $this->Teacher_model->addTeacher($data);
+                redirect(base_url() . "Teacher/showTeacher");
+            } else {
+                $this->session->set_flashdata('Fail', 'Teacher is Invalid');
+                $this->load->view('addTeacher');
+            }
+        } else {
+            $this->load->view('addTeacher');
+        }
     }
     function showTeacher()
     {
