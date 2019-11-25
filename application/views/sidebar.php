@@ -171,24 +171,6 @@
             </div>
         </div>
     </li>
-    <!-- Attendence-->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAttendence" aria-expanded="true" aria-controls="collapseClasses">
-            <i class="fas fa-fw fa-folder"></i>
-            <span>Attendence</span>
-        </a>
-        <div id="collapseAttendence" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Attendence</h6>
-                <option>
-                    <?php foreach ($class as $c) { ?>
-                <option value="<?php echo $c['id']; ?>"><?php echo $c['className']; ?></option>
-
-            <?php  } ?>
-            </option>
-            </div>
-        </div>
-    </li>
 
 
     <!-- Nav Item - Charts -->

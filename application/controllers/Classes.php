@@ -38,11 +38,18 @@ class Classes extends CI_Controller
     {
         $this->load->model('Class_model');
         $formArray = array();
-        $formArray['className'] = $this->input->post('className');
-        $formArray['fee'] = $this->input->post('fee');
-        $this->Class_model->updateClass($classId, $formArray);
-        $this->session->set_flashdata('success', 'Record Successfully save');
-        redirect(base_url() . 'Classes');
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('className', 'Class Name', 'required|alpha');
+        $this->form_validation->set_rules('fee', 'Class Fee', 'required|numeric');
+        if ($this->form_validation->run() == true) {
+            $formArray['className'] = $this->input->post('className');
+            $formArray['fee'] = $this->input->post('fee');
+            $this->Class_model->updateClass($classId, $formArray);
+            $this->session->set_flashdata('success', 'Record Successfully save');
+            redirect(base_url() . 'Classes');
+        } else {
+            $this->load->view('addClass');
+        }
     }
     function edit($classId)
     {

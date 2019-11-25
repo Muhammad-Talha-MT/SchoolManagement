@@ -12,6 +12,11 @@
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
+            <?php
+            if (isset($_SESSION['Fail'])) {
+                echo "<span class='alert alert-danger'>" . $_SESSION['Fail'] . "</span><br><br>";
+            }
+            ?>
 
             <!-- Main Content -->
             <div id="content">
@@ -20,7 +25,7 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
+                    <?php echo validation_errors('<div class="alert alert-danger">', '</div> '); ?>
                     <!-- Page Heading -->
                     <h1 class="h3 mb-4 text-gray-800">Add Subject</h1>
                     <div class="border-left-primary">
