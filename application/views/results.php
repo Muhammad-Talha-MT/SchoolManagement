@@ -117,14 +117,26 @@
                 }
             }
         }
+
+        function getIndex() {
+            var selection = document.getElementById('selection');
+            for (var i = 0; i < selection.length; i++) {
+                if (selection[i].id == "<?php echo $current?>") {
+                    return i;
+                }
+            }
+            return 0;
+        }
         $(document).ready(function() {
+            var selection = document.getElementById('selection');
+            selection.selectedIndex = getIndex();
             $("#selection").change(function() {
-                div = document.getElementById('main_data');
-                selection = document.getElementById('selection');
-                classid = selection.options[selection.selectedIndex].id;
-                if (classid == '-1') {
-                    showall();
-                } else filter(classid);
+                if (selection[selection.selectedIndex].id == '-1') {
+                    window.location = "<?php echo base_url(); ?>" + "results";
+                } else {
+                    window.location = "<?php echo base_url(); ?>" + "results/showResult/" + selection[
+                        selection.selectedIndex].id;
+                }
             })
             var data = getData();
             $("#save").click(function() {
@@ -145,8 +157,6 @@
                     }
                 }
                 data = newData;
-                console.log(changed);
-                console.log(JSON.stringify(changed));
                 var ajaxObj = {
                     type: 'POST',
                     datatype: 'json',
@@ -189,36 +199,6 @@
                 d.push(row);
             }
             return d;
-        }
-
-        function showall() {
-            var filter, table, tr, td, i, txtValue;
-            table = document.getElementById("dataTable");
-            tr = table.getElementsByTagName("tr");
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td");
-                id = td[8];
-                tr[i].style.display = '';
-            }
-        }
-
-        function filter(classid) {
-            var filter, table, tr, td, i, txtValue;
-            table = document.getElementById("dataTable");
-            tr = table.getElementsByTagName("tr");
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td");
-                id = td[8];
-                if (id) {
-                    if (id.innerHTML !== classid) {
-                        console.log(tr[i].style.display);
-                        tr[i].style.display = 'none';
-                    }
-                    if (id.innerHTML == classid) {
-                        tr[i].style.display = '';
-                    }
-                }
-            }
         }
         </script>
 </body>
