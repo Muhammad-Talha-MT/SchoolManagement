@@ -14,18 +14,28 @@
         }
         public function addNewUser()
         {
-            $this->load->model('User_model');
-            $formArray = array();
-            $formArray['userName'] = $this->input->post('userName');
-            $formArray['password'] = $this->input->post('password');
-            $formArray['createdDate'] = Date('Y-m-d');
-            $l = $this->User_model->addUser($formArray);
-            if ($l == true) {
-                $this->session->set_flashdata('success', 'Record Successfully save');
-            } else {
-                $this->session->set_flashdata('success', 'Record Already Exist');
+            $this->load->library('form_validation');
+            $this->form_validation->set_rules('userName', 'User Name', 'required|alpha_dash|min_length[6]|max_length[12]|is_unique[tbuser.userName]');
+            $this->form_validation->set_rules('password', 'Password', 'required|min_length[6]|max_length[20]');
+            if ($this->form_validation->run() == FALSE)
+            {
+                $this->load->view('addUser');
             }
-            redirect(base_url() . 'Users');
+            else
+            {
+                $this->load->model('User_model');
+                $formArray = array();
+                $formArray['userName'] = $this->input->post('userName');
+                $formArray['password'] = $this->input->post('password');
+                $formArray['createdDate'] = Date('Y-m-d');
+                $l = $this->User_model->addUser($formArray);
+                if ($l == true) {
+                    $this->session->set_flashdata('success', 'Record Successfully save');
+                } else {
+                    $this->session->set_flashdata('success', 'Record Already Exist');
+                }
+                redirect(base_url() . 'Users');
+            }
         }
         function showEdit($userId)
         {
@@ -51,6 +61,7 @@
             $user = $this->User_model->editUser($userId);
             if (!empty($user)) {
                 $this->User_model->delete($userId);
+                $this->session->set_flashdata('success', 'Record Successfully Deleted');
                 redirect(base_url() . 'Users');
             }
         }
