@@ -40,7 +40,7 @@
         {
             $this->load->library('form_validation');
             $this->load->model('Class_model');
-            $class = $this->User_model->editClass($userId);
+            $class = $this->Class_model->editClass($classId);
             $original_value = $class['className'];
             if($this->input->post('className') != $original_value)
             {
