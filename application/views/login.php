@@ -1,72 +1,102 @@
+<?php
+if (!isset($_SESSION['id'])) {
+  redirect(base_url() . 'Login/showLogin');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <?php require('head.php'); ?>
 
-<body class="bg-gradient-primary">
+<body id="page-top">
 
-  <div class="container">
+  <!-- Page Wrapper -->
+  <div id="wrapper">
 
-    <!-- Outer Row -->
-    <div class="row justify-content-center">
+    <?php require('sidebar.php'); ?>
 
-      <div class="col-xl-10 col-lg-12 col-md-9">
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
 
-        <div class="card o-hidden border-0 shadow-lg my-5">
-          <div class="card-body p-0">
-            <!-- Nested Row within Card Body -->
-            <div class="row">
-              <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-              <div class="col-lg-6">
-                <div class="p-5">
-                  <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+      <!-- Main Content -->
+      <div id="content">
+
+        <?php require('topbar.php'); ?>
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+          <?php
+          if (isset($_SESSION['Fail'])) {
+            echo "<span class='alert alert-danger'>" . $_SESSION['Fail'] . "</span><br><br>";
+          }
+          ?>
+          <?php echo validation_errors('<div class="alert alert-danger">', '</div> '); ?>
+          <!-- Page Heading -->
+          <h1 class="h3 mb-4 text-gray-800">Edit Teacher</h1>
+          <div class="border-left-primary">
+            <div class="container">
+              <form method="POST" enctype="multipart/form-data" class="needs-validation" action="<?php echo base_url() . 'Teacher/editTeacher/' . $id; ?>">
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="studentName">Teacher Name</label>
+                    <input type="text" class="form-control" id="teacherName" placeholder="Teacher Name" name="teacherName" value="<?php echo $teacherName; ?>">
                   </div>
-                  <form class="user">
-                    <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
-                    </div>
-                    <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
-                    </div>
-                    <div class="form-group">
-                      <div class="custom-control custom-checkbox small">
-                        <input type="checkbox" class="custom-control-input" id="customCheck">
-                        <label class="custom-control-label" for="customCheck">Remember Me</label>
-                      </div>
-                    </div>
-                    <a href="index.html" class="btn btn-primary btn-user btn-block">
-                      Login
-                    </a>
-                    <hr>
-                    <a href="index.html" class="btn btn-google btn-user btn-block">
-                      <i class="fab fa-google fa-fw"></i> Login with Google
-                    </a>
-                    <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                      <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                    </a>
-                  </form>
-                  <hr>
-                  <div class="text-center">
-                    <a class="small" href="forgot-password.html">Forgot Password?</a>
-                  </div>
-                  <div class="text-center">
-                    <a class="small" href="register.html">Create an Account!</a>
+                  <div class="form-group col-md-6">
+                    <label for="fatherName">Pay</label>
+                    <input type="text" class="form-control" id="teacherPay" placeholder="Teacher Pay" name="teacherPay" value="<?php echo $pay; ?>">
                   </div>
                 </div>
-              </div>
+                <div class="form-row">
+                  <div class="form-group col-md-10">
+                    <label for="inputAddress">Special Subject</label>
+                    <input type="text" class="form-control" id="specialSubject" placeholder="Subject" name="specialSubject" value="<?php echo $specialSubject; ?>">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="appointedDate">Appointed Date</label>
+                    <input class="form-control" type="date" name="appointedDate" required data-date="" data-date-format="DD MM YYYY" value="<?php echo $appointedDate; ?>">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputCity">Gender</label>
+                    <select class="form-control" name="gender" required>
+                      <option>----Gender----</option>
+                      <option value=" Male">Male</option>
+                      <option value="Female">Female</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group  col-md-6">
+                  <label for="inputMDEx1">Choose CheckIn time</label>
+                  <input type="time" id="checkInTime" class="form-control" name="checkInTime" value="<?php echo $checkInTime; ?>">
+                </div>
+                <div class="form-group  col-md-6">
+                  <label for="inputMDEx1">Choose CheckOut time</label>
+                  <input type="time" id="checkOutTime" class="form-control" name="checkOutTime" value="<?php echo $checkOutTime; ?>">
+                </div>
+                <button type="submit" class="btn btn-primary">Done</button>
+                <button type="reset" class="btn btn-secondary active" onclick="window.location.href = '<?php echo base_url() . 'Teacher/showTeacher' ?>';">Cancel</button>
+              </form>
             </div>
           </div>
+
         </div>
+        <!-- /.container-fluid -->
 
       </div>
+      <!-- End of Main Content -->
+
+      <?php require('footbar.php'); ?>
+
 
     </div>
+    <!-- End of Content Wrapper -->
 
   </div>
+  <!-- End of Page Wrapper -->
 
-  <?php require('foot.php'); ?>
 
-</body>
+  <?php require('foot.php');
 
-</html>
+  ?>
+
+
+  < /body> < /html>

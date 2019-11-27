@@ -1,3 +1,8 @@
+<?php
+if (!isset($_SESSION['id'])) {
+    redirect(base_url() . 'Login/showLogin');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,6 +26,12 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
+                    <?php
+                    if (isset($_SESSION['Success'])) {
+                        echo "<span class='alert alert-danger'>" . $_SESSION['Success'] . "</span><br><br>";
+                    }
+                    ?>
+                    <?php echo validation_errors('<div class="alert alert-danger">', '</div> '); ?>
                     <!-- Page Heading -->
                     <h1 class="h3 mb-4 text-gray-800">Add Class</h1>
                     <div class="border-left-primary">

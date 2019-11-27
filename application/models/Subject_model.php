@@ -9,6 +9,16 @@ class Subject_Model extends CI_Model
     {
         return $this->db->get('tbSubject')->result_array();
     }
+    function check($subjectName, $class)
+    {
+        $this->db->select('*');
+        $this->db->where('subjectName', $subjectName);
+        $this->db->where('classId', $class);
+        $this->db->from('tbsubject');
+        $query = $this->db->get();
+        $count = $query->num_rows();
+        return $count;
+    }
     function editSubject($subjectId)
     {
         $this->db->where('id', $subjectId);
