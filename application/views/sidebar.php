@@ -103,44 +103,6 @@
 			</div>
 		</div>
 	</li>
-
-
-
-
-
-	<!-- Student -->
-	<li class="nav-item">
-		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseStudents" aria-expanded="true" aria-controls="collapsePages">
-			<i class="fas fa-fw fa-folder"></i>
-			<span>Students Data</span>
-		</a>
-		<div id="collapseStudents" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-			<div class="bg-white py-2 collapse-inner rounded">
-				<h6 class="collapse-header">Student</h6>
-				<a class="collapse-item" href="<?php echo base_url() . 'Student/admission' ?>">New Admission</a>
-				<a class="collapse-item" href="<?php echo base_url() . 'Student' ?>">Students</a>
-			</div>
-		</div>
-	</li>
-
-	<!--Dues Section-->
-	<li class="nav-item">
-		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDues" aria-expanded="true" aria-controls="collapsePages">
-			<i class="fas fa-fw fa-folder"></i>
-			<span>Dues Section</span>
-		</a>
-		<div id="collapseDues" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-			<div class="bg-white py-2 collapse-inner rounded">
-				<h6 class="collapse-header">Duse</h6>
-				<a class="collapse-item" href="<?php echo base_url() . 'Dues/duestype' ?>">Dues Type</a>
-				<a class="collapse-item" href="<?php echo base_url() . 'Dues/studentDues' ?>">Dues Section</a>
-				<div class="collapse-divider"></div>
-			</div>
-		</div>
-	</li>
-
-
-
 	<!-- Class -->
 	<li class="nav-item">
 		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClasses" aria-expanded="true" aria-controls="collapseClasses">
@@ -173,6 +135,22 @@
 		</div>
 	</li>
 
+	<!-- Student -->
+	<li class="nav-item">
+		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseStudents" aria-expanded="true" aria-controls="collapsePages">
+			<i class="fas fa-fw fa-folder"></i>
+			<span>Students Data</span>
+		</a>
+		<div id="collapseStudents" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+			<div class="bg-white py-2 collapse-inner rounded">
+				<h6 class="collapse-header">Student</h6>
+				<a class="collapse-item" href="<?php echo base_url() . 'Student/admission' ?>">New Admission</a>
+				<a class="collapse-item" href="<?php echo base_url() . 'Student' ?>">Students</a>
+			</div>
+		</div>
+	</li>
+
+	
 	<!--Teacher-->
 	<li class="nav-item">
 		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTeacher" aria-expanded="true" aria-controls="collapsePages">
@@ -189,6 +167,25 @@
 			</div>
 		</div>
 	</li>
+
+	<!--Dues Section-->
+	<li class="nav-item">
+		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDues" aria-expanded="true" aria-controls="collapsePages">
+			<i class="fas fa-fw fa-folder"></i>
+			<span>Dues Section</span>
+		</a>
+		<div id="collapseDues" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+			<div class="bg-white py-2 collapse-inner rounded">
+				<h6 class="collapse-header">Duse</h6>
+				<a class="collapse-item" href="<?php echo base_url() . 'Dues/duestype' ?>">Dues Type</a>
+				<a class="collapse-item" href="<?php echo base_url() . 'Dues/studentDues' ?>">Dues Section</a>
+				<div class="collapse-divider"></div>
+			</div>
+		</div>
+	</li>
+
+
+	
 
 
 	<!-- Nav Item - Charts -->

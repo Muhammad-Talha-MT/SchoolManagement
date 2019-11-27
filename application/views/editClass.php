@@ -1,3 +1,8 @@
+<?php
+if (!isset($_SESSION['id'])) {
+    redirect(base_url() . 'Login/showLogin');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,36 +28,49 @@
 
 					<!-- Page Heading -->
 					<h1 class="h3 mb-4 text-gray-800">Edit Class</h1>
+                    <?php
+                    if (isset($_SESSION['Fail'])) {
+                        echo "<span class='alert alert-danger'>" . $_SESSION['Fail'] . "</span><br><br>";
+                    }
+                    ?>
+                    <?php echo validation_errors('<div class="alert alert-danger">', '</div> '); ?>
 					<div class="border-left-primary">
 						<div class="container">
 							<form method="POST" action="<?php echo base_url() . 'Classes/showEdit/' . $class['id'] ?>">
-								<div class="form-row">
-									<div class="form-group col-md-6">
+                            <div class="form-row">
+									<div class="form-group col-md-4">
 										<label for="inputEmail4">Class Name</label>
-										<input class="form-control" id="className" placeholder="Name" name="className" required value="<?php echo set_value('className', $class['className']); ?>">
+										<input class="form-control" id="className" placeholder="Enter Class Name" name="className" value="<?php echo set_value('className', $class['className']); ?>">
+                                        <?php echo form_error('className'); ?>
 									</div>
-									<div class="form-group col-md-6">
+									<div class="form-group col-md-4">
 										<label for="inputPassword4">Session Start</label>
-										<input type="date" class="form-control" id="className" placeholder="Enter Class Name" name="session" required>
+										<input type="date" class="form-control" id="session" placeholder="Enter Class Name" name="session" value="<?php echo set_value('session', $class['session']); ?>">
+                                        <?php echo form_error('session'); ?>
 									</div>
-									<div class="form-group col-md-6">
+									<div class="form-group col-md-4">
 										<label for="inputPassword4">Monthly Fee</label>
-										<input class="form-control" id="fee" placeholder="Monthly Fee (Integer Value)" name="monthly" pattern="\d+" required>
+										<input class="form-control" id="monthly" placeholder="Monthly Fee (Integer Value)" name="monthly" value="<?php echo set_value('monthly', $class['monthlyFee']); ?>">
+                                        <?php echo form_error('monthly'); ?>
 									</div>
-									<div class="form-group col-md-6">
+									<div class="form-group col-md-4">
 										<label for="inputPassword4">Admission Fee</label>
-										<input class="form-control" id="fee" placeholder="Admission Fee (Integer Value)" name="admission" pattern="\d+" required>
+										<input class="form-control" id="admission" placeholder="Admission Fee (Integer Value)" name="admission" value="<?php echo set_value('admission', $class['admissionFee']); ?>">
+                                        <?php echo form_error('admission'); ?>
 									</div>
-									<div class="form-group col-md-6">
+									<div class="form-group col-md-4">
 										<label for="inputPassword4">Paper Fee</label>
-										<input class="form-control" id="fee" placeholder="Paper Fee (Integer Value)" name="paper" pattern="\d+" required>
+										<input class="form-control" id="paper" placeholder="Paper Fee (Integer Value)" name="paper" value="<?php echo set_value('paper', $class['paperFund']); ?>">
+                                        <?php echo form_error('paper'); ?>
 									</div>
-									<div class="form-group col-md-6">
+									<div class="form-group col-md-4">
 										<label for="inputPassword4">Course Fee</label>
-										<input class="form-control" id="fee" placeholder="Course Fee (Integer Value)" name="course" pattern="\d+" required>
+										<input class="form-control" id="course" placeholder="Course Fee (Integer Value)" name="course" value="<?php echo set_value('course', $class['courseFee']); ?>">
+                                        <?php echo form_error('course'); ?>
 									</div>
-								</div> <button type="submit" class="btn btn-primary ">Done</button>
-								<button type="reset" class="btn btn-secondary active" onclick="window.location.href = '<?php echo base_url() . '.Classes.' ?>';">Cancel</button>
+								</div>
+                                <button type="submit" class="btn btn-primary ">Done</button>
+								<button type="reset" class="btn btn-secondary active" onclick="window.location.href = '<?php echo base_url() . 'Classes' ?>';">Cancel</button>
 							</form>
 						</div>
 					</div>
