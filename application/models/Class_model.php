@@ -12,6 +12,11 @@ class Class_model extends CI_model
             return true;
         }
     }
+    function getClasses_Name()
+    {
+        $this->db->select('id,className');
+        return $this->db->get('tbclass')->result_array();
+    }
     function getFee($id)
     {
         $this->db->select('fee');

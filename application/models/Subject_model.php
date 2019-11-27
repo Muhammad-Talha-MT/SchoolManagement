@@ -5,6 +5,16 @@ class Subject_Model extends CI_Model
     {
         $this->db->insert('tbSubject', $formArray);
     }
+    function getSubjectByClass($id)
+    {
+        $this->db->select('id,subjectName,totalMarks');
+        $this->db->where("classId", $id);
+        $this->db->from('tbSubject');
+        return $subject=$this->db->get()->result_array();
+
+        // print_r($subject=$this->db->get()->row());
+        // die();
+    }
     function getSubject()
     {
         return $this->db->get('tbSubject')->result_array();
