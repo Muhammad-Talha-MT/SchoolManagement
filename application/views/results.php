@@ -55,9 +55,9 @@
                                             <th>Subject Name</th>
                                             <th>Obtained Marks</th>
                                             <th>Total Marks</th>
-                                            <th class="hidden">Subject Id</th>
-                                            <th class="hidden">Student Id</th>
-                                            <th class="hidden">class Id</th>
+                                            <th style="display:none">Subject Id</th>
+                                            <th style="display:none">Student Id</th>
+                                            <th style="display:none">class Id</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -68,9 +68,9 @@
                                             <th>Subject Name</th>
                                             <th>Obtained Marks</th>
                                             <th>Total Marks</th>
-                                            <th class="hidden">Subject Id</th>
-                                            <th class="hidden">Student Id</th>
-                                            <th class="hidden">class Id</th>
+                                            <th style="display:none">Subject Id</th>
+                                            <th style="display:none">Student Id</th>
+                                            <th style="display:none">class Id</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -83,9 +83,9 @@
                                             <td><input id="marks" class="form-control" pattern="\d+" required
                                                     value="<?php echo $r["obtainedmarks"]; ?>" disabled></input></td>
                                             <td><?php echo $r["totalmarks"]; ?></td>
-                                            <td class="hidden"><?php echo $r["subjectid"]; ?></td>
-                                            <td class="hidden"><?php echo $r["studentid"]; ?></td>
-                                            <td class="hidden"><?php echo $r["classid"]; ?></td>
+                                            <td style="display:none"><?php echo $r["subjectid"]; ?></td>
+                                            <td style="display:none"><?php echo $r["studentid"]; ?></td>
+                                            <td style="display:none"><?php echo $r["classid"]; ?></td>
                                         </tr>
                                         <?php } ?>
                                     </tbody>
@@ -118,6 +118,18 @@
             }
         }
 
+        function checkChanged(changed) {
+            for (var i = 0; i < changed.length; i++) {
+                if (isNaN(changed[i]['obtainedmarks'])) {
+                    return true;
+                }
+                if (Number(changed[i]['obtainedmarks']) > Number(changed[i]['totalmarks'])) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         function getIndex() {
             var selection = document.getElementById('selection');
             for (var i = 0; i < selection.length; i++) {
@@ -140,10 +152,6 @@
             })
             var data = getData();
             $("#save").click(function() {
-                var save = document.getElementById('save');
-                save.style.display = "none";
-                var edit = document.getElementById('edit');
-                edit.style.display = "";
                 var newData = getData();
                 var changed = new Array();
                 for (var i = 0; i < newData.length; i++) {
@@ -152,27 +160,36 @@
                             'studentid': newData[i]['studentid'],
                             'subjectid': newData[i]['subjectid'],
                             'obtainedmarks': newData[i]['obtainedmarks'],
+                            'totalmarks': newData[i]['totalmarks'],
                         }
                         changed.push(d);
                     }
                 }
-                data = newData;
-                var ajaxObj = {
-                    type: 'POST',
-                    datatype: 'json',
-                    url: '<?php echo base_url(); ?>results/save',
-                    data: {
-                        newData: changed,
-                    },
-                    success: function() {
-                        console.log("success");
-                    },
-                    error: function() {
-                        console.log("Failed");
-                    },
-                };
-                $.ajax(ajaxObj);
-                disableinputs();
+                if (checkChanged(changed)) {
+                    window.alert("Invalid Input");
+                } else {
+                    data = newData;
+                    var ajaxObj = {
+                        type: 'POST',
+                        datatype: 'json',
+                        url: '<?php echo base_url(); ?>results/save',
+                        data: {
+                            newData: changed,
+                        },
+                        success: function() {
+                            console.log("success");
+                        },
+                        error: function() {
+                            console.log("Failed");
+                        },
+                    };
+                    $.ajax(ajaxObj);
+                    disableinputs();
+                    var save = document.getElementById('save');
+                    save.style.display = "none";
+                    var edit = document.getElementById('edit');
+                    edit.style.display = "";
+                }
             })
         })
 
@@ -196,6 +213,7 @@
                 row['studentid'] = td[7].innerHTML;
                 row['subjectid'] = td[6].innerHTML;
                 row['obtainedmarks'] = td[4].childNodes[0].value;
+                row['totalmarks'] = td[5].innerHTML;
                 d.push(row);
             }
             return d;
