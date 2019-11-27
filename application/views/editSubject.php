@@ -25,50 +25,43 @@ if (!isset($_SESSION['id'])) {
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <?php
-                    if (isset($_SESSION['Fail'])) {
-                        echo "<span class='alert alert-danger'>" . $_SESSION['Fail'] . "</span><br><br>";
-                    }
-                    ?>
+
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Edit Subject</h1>
+                    <h1 class="h3 mb-4 text-gray-800">Add Subject</h1>
                     <div class="border-left-primary">
 
-                        <?php echo validation_errors('<div class="alert alert-danger">', '</div> '); ?>
+
+
                         <div class="container">
-                            <form method="POST" action="<?php echo base_url() . 'Subject/edit' ?>">
+                            <form method="POST" action="<?php echo base_url() . 'Subject/showEdit/' . $subject['id'] ?>">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="inputEmail4">Name</label>
-                                        <input class="form-control" id="subjectName" placeholder="Name" name="subjectName">
+                                        <input class="form-control" id="subjectName" placeholder="Name" name="subjectName" required value="<?php echo set_value('subjectName', $subject['subjectName']); ?>">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="inputPassword4">Total Marks</label>
-                                        <input class="form-control" id="subjectMarks" placeholder="Marks" name="subjectMarks"> </div>
+                                        <input class="form-control" id="subjectMarks" placeholder="Marks" name="subjectMarks" required value="<?php echo set_value('subjectMarks', $subject['totalMarks']); ?>"> </div>
+
                                     <div class="form-group col-md-6">
                                         <label for="inputCity">Class</label>
                                         <select class="form-control" name="class" required>
                                             <option>----Class----</option>
-                                            <?php foreach ($class as $c) { ?>
-                                                <option value="<?php echo $c['id']; ?>"><?php echo $c['className']; ?></option>
-
-                                            <?php  } ?>
+                                            <option value="0">PG</option>
+                                            <option value="1">Nursery</option>
                                         </select>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="inputCity">Class</label>
                                         <select class="form-control" name="teacher" required>
                                             <option>----Teacher----</option>
-                                            <?php foreach ($teacher as $t) { ?>
-                                                <option value="<?php echo $c['id']; ?>"><?php echo $t['teacherName']; ?></option>
-
-                                            <?php  } ?>
+                                            <option value="0">Ahmad</option>
+                                            <option value="1">Ali</option>
                                         </select>
                                     </div>
                                     <br />
                                     <br />
                                 </div> <button type="submit" class="btn btn-primary ">Done</button>
-                                <button type="reset" class="btn btn-secondary active" onclick="window.location.href = '<?php echo base_url() . 'Subject' ?>';">Cancel</button>
                             </form>
 
                         </div>
