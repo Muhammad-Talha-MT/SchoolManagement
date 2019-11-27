@@ -39,6 +39,7 @@
                     </div>
                     <button id="edit" onclick="edit()" class="btn btn-secondary">Edit</button>
                     <button id="save" class="btn btn-primary" style="display:none">save</button>
+                    <button id="cancel" class="btn btn-danger" style="display:none">Cancel</button>
                     <!-- DataTales Example -->
                     <div id="main_data" class="card shadow mb-4">
                         <div class="card-header py-3">
@@ -108,6 +109,8 @@
         function edit() {
             var save = document.getElementById('save');
             save.style.display = "";
+            var save = document.getElementById('cancel');
+            save.style.display = "";
             var edit = document.getElementById('edit');
             edit.style.display = "none";
             var inp = document.getElementsByTagName('input');
@@ -127,7 +130,20 @@
             }
             return 0;
         }
+
+        function checkChanged(changed) {
+            for (var i = 0; i < changed.length; i++) {
+                if (isNaN(changed[i]['obtainedmarks'])) {
+                    return true;
+                }
+                if (Number(changed[i]['obtainedmarks']) > Number(changed[i]['totalmarks'])) {
+                    return true;
+                }
+            }
+            return false;
+        }
         $(document).ready(function() {
+            var data = getData();
             var selection = document.getElementById('selection');
             selection.selectedIndex = getIndex();
             $("#selection").change(function() {
@@ -138,9 +154,10 @@
                         selection.selectedIndex].id;
                 }
             })
-            var data = getData();
-            $("#save").click(function() {
+            $("#cancel").click(function() {
                 var save = document.getElementById('save');
+                save.style.display = "none";
+                var save = document.getElementById('cancel');
                 save.style.display = "none";
                 var edit = document.getElementById('edit');
                 edit.style.display = "";
@@ -149,30 +166,68 @@
                 for (var i = 0; i < newData.length; i++) {
                     if (newData[i]['obtainedmarks'] !== data[i]['obtainedmarks']) {
                         var d = {
-                            'studentid': newData[i]['studentid'],
-                            'subjectid': newData[i]['subjectid'],
-                            'obtainedmarks': newData[i]['obtainedmarks'],
+                            'studentid': data[i]['studentid'],
+                            'subjectid': data[i]['subjectid'],
+                            'obtainedmarks': data[i]['obtainedmarks'],
                         }
                         changed.push(d);
                     }
                 }
-                data = newData;
-                var ajaxObj = {
-                    type: 'POST',
-                    datatype: 'json',
-                    url: '<?php echo base_url(); ?>results/save',
-                    data: {
-                        newData: changed,
-                    },
-                    success: function() {
-                        console.log("success");
-                    },
-                    error: function() {
-                        console.log("Failed");
-                    },
-                };
-                $.ajax(ajaxObj);
+                var table, tr, td;
+                table = document.getElementById("dataTable");
+                tr = table.getElementsByTagName("tr");
+                var j = 0;
+                for (i = 2;
+                    (i < tr.length) && (j < changed.length); i++) {
+                    td = tr[i].getElementsByTagName("td");
+                    if (td[7].innerHTML == changed[j]['studentid'] && td[6].innerHTML == changed[j][
+                            'subjectid'
+                        ]) {
+                        td[4].childNodes[0].value = changed[j]['obtainedmarks'];
+                        j++;
+                    }
+                }
                 disableinputs();
+            })
+            $("#save").click(function() {
+                var newData = getData();
+                var changed = new Array();
+                for (var i = 0; i < newData.length; i++) {
+                    if (newData[i]['obtainedmarks'] !== data[i]['obtainedmarks']) {
+                        var d = {
+                            'studentid': newData[i]['studentid'],
+                            'subjectid': newData[i]['subjectid'],
+                            'obtainedmarks': newData[i]['obtainedmarks'],
+                            'totalmarks': newData[i]['totalmarks'],
+                        }
+                        changed.push(d);
+                    }
+                }
+                if (checkChanged(changed)) {
+                    window.alert("Invalid Input");
+                } else {
+                    data = newData;
+                    var ajaxObj = {
+                        type: 'POST',
+                        datatype: 'json',
+                        url: '<?php echo base_url(); ?>results/save',
+                        data: {
+                            newData: changed,
+                        },
+                        success: function() {
+                            console.log("success");
+                        },
+                        error: function() {
+                            console.log("Failed");
+                        },
+                    };
+                    $.ajax(ajaxObj);
+                    disableinputs();
+                    var save = document.getElementById('save');
+                    save.style.display = "none";
+                    var edit = document.getElementById('edit');
+                    edit.style.display = "";
+                }
             })
         })
 
@@ -186,7 +241,7 @@
         }
 
         function getData() {
-            var filter, table, tr, td, i, txtValue;
+            var table, tr, td, i, txtValue;
             var d = new Array();
             table = document.getElementById("dataTable");
             tr = table.getElementsByTagName("tr");
@@ -196,6 +251,7 @@
                 row['studentid'] = td[7].innerHTML;
                 row['subjectid'] = td[6].innerHTML;
                 row['obtainedmarks'] = td[4].childNodes[0].value;
+                row['totalmarks'] = td[5].innerHTML
                 d.push(row);
             }
             return d;
