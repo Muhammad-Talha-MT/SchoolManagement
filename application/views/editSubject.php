@@ -30,70 +30,64 @@ if (!isset($_SESSION['id'])) {
                         echo "<span class='alert alert-danger'>" . $_SESSION['Fail'] . "</span><br><br>";
                     }
                     ?>
-                    <?php echo validation_errors('<div class="alert alert-danger">', '</div> '); ?>
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">New Teacher</h1>
+                    <h1 class="h3 mb-4 text-gray-800">Edit Subject</h1>
                     <div class="border-left-primary">
-                        <div class="container">
-                            <form method="POST" enctype="multipart/form-data" class="needs-validation" action="<?php echo base_url() . 'Teacher/addTeacher' ?>">
-                                <div class="form-row">
-                                    <div class="form-group col-md-12">
-                                        <label for="studentName">Teacher Name</label>
-                                        <input type="text" class="form-control" id="teacherName" placeholder="Teacher Name" name="teacherName">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="fatherName">Pay</label>
-                                        <input type="text" class="form-control" id="teacherPay" placeholder="Teacher Pay" name="teacherPay">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="inputAddress">Special Subject</label>
-                                        <input type="text" class="form-control" id="specialSubject" placeholder="Subject" name="specialSubject">
-                                    </div>
-                                </div>
-                                <div class="form-row">
 
-                                    <div class="form-group col-md-3">
-                                        <label for="appointedDate">Appointed Date</label>
-                                        <input class="form-control" type="date" name="appointedDate" required data-date="" data-date-format="DD MM YYYY">
+                        <?php echo validation_errors('<div class="alert alert-danger">', '</div> '); ?>
+                        <div class="container">
+                            <form method="POST" action="<?php echo base_url() . 'Subject/edit' ?>">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputEmail4">Name</label>
+                                        <input class="form-control" id="subjectName" placeholder="Name" name="subjectName">
                                     </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="inputCity">Gender</label>
-                                        <select class="form-control" name="gender" required>
-                                            <option>----Gender----</option>
-                                            <option value="Male">Male</option>
-                                            <option value="Female">Female</option>
+                                    <div class="form-group col-md-6">
+                                        <label for="inputPassword4">Total Marks</label>
+                                        <input class="form-control" id="subjectMarks" placeholder="Marks" name="subjectMarks"> </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="inputCity">Class</label>
+                                        <select class="form-control" name="class" required>
+                                            <option>----Class----</option>
+                                            <?php foreach ($class as $c) { ?>
+                                                <option value="<?php echo $c['id']; ?>"><?php echo $c['className']; ?></option>
+
+                                            <?php  } ?>
                                         </select>
                                     </div>
-                                    <div class="form-group  col-md-3">
-                                        <label for="inputMDEx1">Choose CheckIn time</label>
-                                        <input type="time" id="checkInTime" class="form-control" name="checkInTime">
-                                    </div>
-                                    <div class="form-group  col-md-3">
-                                        <label for="inputMDEx1">Choose CheckOut time</label>
-                                        <input type="time" id="checkOutTime" class="form-control" name="checkOutTime">
-                                    </div>
-                                </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="inputCity">Class</label>
+                                        <select class="form-control" name="teacher" required>
+                                            <option>----Teacher----</option>
+                                            <?php foreach ($teacher as $t) { ?>
+                                                <option value="<?php echo $c['id']; ?>"><?php echo $t['teacherName']; ?></option>
 
-
-                                <div class="form-row ">
-                                    <div class="form-group col-md-3">
-                                        <input class="btn btn-success" id="uploadPicture" type="file" name="uploadPicture" required>
+                                            <?php  } ?>
+                                        </select>
                                     </div>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Done</button>
-                                <button type="reset" class="btn btn-secondary active" onclick="window.location.href = '<?php echo base_url() . 'Teacher/showTeacher' ?>';">Cancel</button>
+                                    <br />
+                                    <br />
+                                </div> <button type="submit" class="btn btn-primary ">Done</button>
+                                <button type="reset" class="btn btn-secondary active" onclick="window.location.href = '<?php echo base_url() . 'Subject' ?>';">Cancel</button>
                             </form>
+
                         </div>
                     </div>
 
                 </div>
+                <br />
+
+                <?php
+                if (isset($_SESSION['success'])) {
+                    echo  "<span class='alert alert-success'>" . $_SESSION['success'] . "</span>";
+                }
+                ?>
                 <!-- /.container-fluid -->
 
             </div>
             <!-- End of Main Content -->
 
             <?php require('footbar.php'); ?>
-
 
         </div>
         <!-- End of Content Wrapper -->
@@ -102,9 +96,8 @@ if (!isset($_SESSION['id'])) {
     <!-- End of Page Wrapper -->
 
 
-    <?php require('foot.php');
+    <?php require('foot.php'); ?>
 
-    ?>
+</body>
 
-
-    < /body> < /html>
+</html>

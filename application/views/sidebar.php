@@ -29,8 +29,7 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-            aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog"></i>
             <span>Components</span>
         </a>
@@ -45,8 +44,7 @@
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-            aria-expanded="true" aria-controls="collapseUtilities">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-wrench"></i>
             <span>Utilities</span>
         </a>
@@ -71,8 +69,7 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
-            aria-controls="collapsePages">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder"></i>
             <span>Pages</span>
         </a>
@@ -94,8 +91,7 @@
 
     <!-- Users -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsers" aria-expanded="true"
-            aria-controls="collapseUsers">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsers" aria-expanded="true" aria-controls="collapseUsers">
             <i class="fas fa-fw fa-folder"></i>
             <span>Users</span>
         </a>
@@ -114,8 +110,7 @@
 
     <!-- Student -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseStudents"
-            aria-expanded="true" aria-controls="collapsePages">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseStudents" aria-expanded="true" aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder"></i>
             <span>Students Data</span>
         </a>
@@ -131,8 +126,7 @@
 
     <!-- Class -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClasses"
-            aria-expanded="true" aria-controls="collapseClasses">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClasses" aria-expanded="true" aria-controls="collapseClasses">
             <i class="fas fa-fw fa-folder"></i>
             <span>Classes</span>
         </a>
@@ -147,8 +141,7 @@
 
     <!-- Subject-->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSubject"
-            aria-expanded="true" aria-controls="collapsePages">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSubject" aria-expanded="true" aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder"></i>
             <span>Subject Data</span>
         </a>
@@ -164,8 +157,7 @@
 
     <!--Teacher-->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTeacher"
-            aria-expanded="true" aria-controls="collapsePages">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTeacher" aria-expanded="true" aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder"></i>
             <span>Teacher Data</span>
         </a>
@@ -174,16 +166,12 @@
                 <h6 class="collapse-header">Teacher</h6>
                 <a class="collapse-item" href="<?php echo base_url() . 'Teacher/createTeacher' ?>">Add Teacher</a>
                 <a class="collapse-item" href="<?php echo base_url() . 'Teacher/showTeacher' ?>">View Teachers</a>
+                <a class="collapse-item" href="<?php echo base_url() . 'TeacherPay/ShowTeacher' ?>">Teachers Pay</a>
                 <div class="collapse-divider"></div>
             </div>
         </div>
     </li>
-    <!-- Nav Item - Charts -->
-    <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url() . 'fees' ?>">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Fees</span></a>
-    </li>
+
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
