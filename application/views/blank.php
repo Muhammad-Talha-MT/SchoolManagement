@@ -1,3 +1,8 @@
+<?php
+if (!isset($_SESSION['id'])) {
+	redirect(base_url() . 'Login/showLogin');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,41 +10,41 @@
 
 <body id="page-top">
 
-  <!-- Page Wrapper -->
-  <div id="wrapper">
+	<!-- Page Wrapper -->
+	<div id="wrapper">
 
-    <?php require('sidebar.php'); ?>
+		<?php require('sidebar.php'); ?>
 
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
 
-      <!-- Main Content -->
-      <div id="content">
+			<!-- Main Content -->
+			<div id="content">
 
-        <?php require('topbar.php'); ?>
+				<?php require('topbar.php'); ?>
 
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
+				<!-- Begin Page Content -->
+				<div class="container-fluid">
 
-          <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+					<!-- Page Heading -->
+					<h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
 
-        </div>
-        <!-- /.container-fluid -->
+				</div>
+				<!-- /.container-fluid -->
 
-      </div>
-      <!-- End of Main Content -->
+			</div>
+			<!-- End of Main Content -->
 
-      <?php require('footbar.php'); ?>
+			<?php require('footbar.php'); ?>
 
-    </div>
-    <!-- End of Content Wrapper -->
+		</div>
+		<!-- End of Content Wrapper -->
 
-  </div>
-  <!-- End of Page Wrapper -->
+	</div>
+	<!-- End of Page Wrapper -->
 
 
-  <?php require('foot.php'); ?>
+	<?php require('foot.php'); ?>
 
 </body>
 
