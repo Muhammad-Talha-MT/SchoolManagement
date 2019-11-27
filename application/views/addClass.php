@@ -23,23 +23,31 @@
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-4 text-gray-800">Add Class</h1>
+                    <?php
+                    if (isset($_SESSION['Fail'])) {
+                        echo "<span class='alert alert-danger'>" . $_SESSION['Fail'] . "</span><br><br>";
+                    }
+                    ?>
+                    <?php echo validation_errors('<div class="alert alert-danger">', '</div> '); ?>
                     <div class="border-left-primary">
                         <div class="container">
                             <form method="POST" action="<?php echo base_url() . 'classes/addNewClass' ?>">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="inputEmail4">Class Name</label>
-                                        <input class="form-control" id="className" placeholder="Enter Class Name" name="className" required>
+                                        <input class="form-control" id="className" placeholder="Enter Class Name" name="className" value="<?php echo set_value('className'); ?>">
+                                        <?php echo form_error('className'); ?>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="inputPassword4">Monthly Fee</label>
-                                        <input class="form-control" id="fee" placeholder="Monthly Fee (Integer Value)" name="fee" pattern="\d+" required> </div>
+                                        <input class="form-control" id="fee" placeholder="Monthly Fee (Integer Value)" name="fee" value="<?php echo set_value('fee '); ?>">
+                                        <?php echo form_error('fee'); ?>   
+                                    </div>
                                 </div> <button type="submit" class="btn btn-primary">Save</button>
                                 <button type="reset" class="btn btn-secondary active" onclick="window.location.href = '<?php echo base_url() . '.Classes.' ?>';">Cancel</button>
                             </form>
                         </div>
                     </div>
-
                 </div>
                 <br />
                 <?php

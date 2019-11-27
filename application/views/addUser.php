@@ -36,10 +36,12 @@
                                     <div class="form-group col-md-6">
                                         <label for="inputEmail4">User Name</label>
                                         <input class="form-control" id="userName" placeholder="Enter User Name" name="userName" value="<?php echo set_value('userName'); ?>" size="50">
+                                        <?php echo form_error('userName'); ?>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="inputPassword4">Password</label>
                                         <input class="form-control" id="password" placeholder="Enter Password" name="password" value="<?php echo set_value('password'); ?>" size="50" >
+                                        <?php echo form_error('password'); ?>
                                     </div>
                                 </div> <button type="submit" class="btn btn-primary">Save</button>
                                 <button type="reset" class="btn btn-secondary active" onclick="window.location.href = '<?php echo base_url() . '.Users.' ?>';">Cancel</button>
@@ -47,7 +49,7 @@
                         </div>
                     </div>
                 </div>
-                <br />
+                <br/>
                 <?php
                 if (isset($_SESSION['success'])) {
                     echo  "<span class='alert alert-success'>" . $_SESSION['success'] . "</span>";

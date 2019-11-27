@@ -22,26 +22,36 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Edit Class</h1>
+                    <h1 class="h3 mb-4 text-gray-800">Edit User</h1>
+                    <?php
+                    if (isset($_SESSION['Fail'])) {
+                        echo "<span class='alert alert-danger'>" . $_SESSION['Fail'] . "</span><br><br>";
+                    }
+                    ?>
+                    <?php echo validation_errors('<div class="alert alert-danger">', '</div> '); ?>
                     <div class="border-left-primary">
                         <div class="container">
                             <form method="POST" action="<?php echo base_url() . 'Users/showEdit/' . $user['id'] ?>">
                             <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="inputEmail4">User Name</label>
-                                        <input class="form-control" id="userName" placeholder="Enter User Name" name="userName" required value="<?php echo set_value('userName', $user['userName']); ?>">
+                                        <input class="form-control" id="userName" placeholder="Enter User Name" name="userName" value="<?php echo set_value('userName', $user['userName']); ?>">
+                                        <?php echo form_error('userName'); ?>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="inputPassword4">Password</label>
-                                        <input class="form-control" id="password" placeholder="Enter Password" name="password" minlength="6" required value="<?php echo set_value('password', $user['password']); ?>"> </div>
-                                </div> <button type="submit" class="btn btn-primary">Save</button>
-                                <button type="reset" class="btn btn-secondary active" onclick="window.location.href = '<?php echo base_url() . '.Users.' ?>';">Cancel</button>
+                                        <input class="form-control" id="password" placeholder="Enter Password" name="password" value="<?php echo set_value('password', $user['password']); ?>">
+                                        <?php echo form_error('password'); ?>
+                                    </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="reset" class="btn btn-secondary active" onclick="window.location.href = '<?php echo base_url() . '.Users.' ?>';">Cancel</button>
                             </form>
                         </div>
                     </div>
 
                 </div>
-                <br />
+                <br/>
 
                 <?php
                 if (isset($_SESSION['success'])) {
