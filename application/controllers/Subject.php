@@ -33,6 +33,10 @@ class Subject extends CI_Controller
                 redirect(base_url() . 'Subject');
             } else {
                 $this->session->set_flashdata('Fail', 'Subject is Invalid');
+                $this->load->model('Subject_model');
+            $data['class'] = $this->Subject_model->showClasses();
+            $data['teacher'] = $this->Subject_model->showTeacher();
+            $this->load->view('addSubject', $data);
             }
         } else {
             $data['class'] = $this->Subject_model->showClasses();
@@ -43,23 +47,59 @@ class Subject extends CI_Controller
     function showEdit($subjectId)
     {
         $this->load->model('Subject_model');
-        $formArray = array();
-        $formArray['subjectName'] = $this->input->post('subjectName');
-        $formArray['totalMarks'] = $this->input->post('subjectMarks');
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('subjectName', 'Subject Name', 'required|alpha');
+        $this->form_validation->set_rules('subjectMarks', 'Subject Marks', 'required|numeric|less_than[101]|greater_than[0]');
+        $check = $this->Subject_model->check($this->input->post('subjectName'), $this->input->post('class'));
+        if ($this->form_validation->run() == True) {
+            if ($check == 0 && $this->input->post('class') > 0 && $this->input->post('teacher') > 0) {
+                $formArray = array();
+                $formArray['subjectName'] = $this->input->post('subjectName');
+                $formArray['totalMarks'] = $this->input->post('subjectMarks');
+                $formArray['classId'] = $this->input->post('class');
+                $formArray['teacherId'] = $this->input->post('teacher');;
+                $this->Subject_model->updateSubject($subjectId, $formArray);
+                $this->session->set_flashdata('success', 'Record Successfully save');
+                redirect(base_url() . 'Subject');
+            } else {
+                $this->session->set_flashdata('Fail', 'Subject is Invalid');
+                $this->load->model('Subject_model');
+                $subject = $this->Subject_model->editSubject($subjectId);
+                $data = array();
+                $data['subject'] = $subject;
+                $this->load->view('editSubject', $data);
+            }
+        } else {
+            $this->load->model('Subject_model');
+            $subject = $this->Subject_model->editSubject($subjectId);
+            $data = array();
+            $data['subjectName'] = $subject['subjectName'];
+            $data['totalMarks']=$subject['totalMarks'];
+            $data['id']=$subject['id'];
+            $data['class'] = $this->Subject_model->showClasses();
+            $data['teacher'] = $this->Subject_model->showTeacher();
+            $this->load->view('editSubject', $data);
+        }
 
-        $formArray['classId'] = $this->input->post('class');
-        $formArray['teacherId'] = $this->input->post('teacher');;
-        $this->Subject_model->updateSubject($subjectId, $formArray);
-        $this->session->set_flashdata('success', 'Record Successfully save');
-        redirect(base_url() . 'Subject');
+
+
+
+
+        $this->load->model('Subject_model');
+        
     }
     function edit($subjectId)
     {
         $this->load->model('Subject_model');
         $subject = $this->Subject_model->editSubject($subjectId);
         $data = array();
-        $data['subject'] = $subject;
+        $data['subjectName'] = $subject['subjectName'];
+        $data['totalMarks']=$subject['totalMarks'];
+        $data['id']=$subject['id'];
+        $data['class'] = $this->Subject_model->showClasses();
+        $data['teacher'] = $this->Subject_model->showTeacher();
         $this->load->view('editSubject', $data);
+        
     }
     function delete($subjectId)
     {

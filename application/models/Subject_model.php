@@ -26,6 +26,13 @@ class Subject_Model extends CI_Model
     {
         return $this->db->get('tbSubject')->result_array();
     }
+    function getClassName($id)
+    {
+     $this->db->where('id',$id);
+     $this->db->from('tbclass');
+     $this->db->select('className');
+     return $this->db->get()->row();
+    }
     function check($subjectName, $class)
     {
         $this->db->select('*');

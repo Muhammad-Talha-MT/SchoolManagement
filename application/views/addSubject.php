@@ -25,26 +25,28 @@ if (!isset($_SESSION['id'])) {
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-4 text-gray-800">Add Subject</h1>
                     <?php
                     if (isset($_SESSION['Fail'])) {
                         echo "<span class='alert alert-danger'>" . $_SESSION['Fail'] . "</span><br><br>";
                     }
                     ?>
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Add Subject</h1>
+                    <?php echo validation_errors('<div class="alert alert-danger">', '</div> '); ?>
                     <div class="border-left-primary">
-
-                        <?php echo validation_errors('<div class="alert alert-danger">', '</div> '); ?>
                         <div class="container">
                             <form method="POST" action="<?php echo base_url() . 'subject/addNewSubject' ?>">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="inputEmail4">Name</label>
-                                        <input class="form-control" id="subjectName" placeholder="Name" name="subjectName">
+                                        <input class="form-control" id="subjectName" placeholder="Name" name="subjectName" value="<?php echo set_value('subjectName'); ?>">
+                                        <?php echo form_error('subjectName'); ?>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="inputPassword4">Total Marks</label>
-                                        <input class="form-control" id="subjectMarks" placeholder="Marks" name="subjectMarks"> </div>
+                                        <input class="form-control" id="subjectMarks" placeholder="Marks" name="subjectMarks" value="<?php echo set_value('subjectMarks'); ?>">
+                                        <?php echo form_error('subjectMarks'); ?>
+                                        </div>
                                     <div class="form-group col-md-6">
                                         <label for="inputCity">Class</label>
                                         <select class="form-control" name="class" required>
@@ -56,7 +58,7 @@ if (!isset($_SESSION['id'])) {
                                         </select>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="inputCity">Class</label>
+                                        <label for="inputCity">Teacher</label>
                                         <select class="form-control" name="teacher" required>
                                             <option>----Teacher----</option>
                                             <?php foreach ($teacher as $t) { ?>
