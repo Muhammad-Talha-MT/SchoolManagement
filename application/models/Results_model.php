@@ -17,6 +17,14 @@ class Results_model extends CI_Model
             return null;
         }
     }
+    function getResults($studentid)
+    {
+        $this->db->select('obtainedmarks,subjectid');
+        $this->db->where("studentid", $studentid);
+        $this->db->from('tbresults');
+        $result=$this->db->get()->result_array();
+        return $result;
+    }
     function getResultIndex($studentid,$subjectid)
     {
         $this->db->select('id');
