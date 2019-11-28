@@ -101,4 +101,17 @@ class Dues_model extends CI_Model
 		$this->db->where("id", $id);
 		$this->db->update("tbdues", $data);
 	}
+	function getTotalEarning()
+	{
+		$this->db->select('totalAmount');
+		$totalAmount = $this->db->get("tbdues")->result();
+
+		$total = 0;
+		foreach ($totalAmount as $dues) {
+			if (isset($dues->totalAmount)) {
+				$total = $total + $dues->totalAmount;
+			}
+		}
+		return $total;
+	}
 }

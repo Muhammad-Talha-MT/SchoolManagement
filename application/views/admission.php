@@ -43,17 +43,17 @@
 										<div class="form-row">
 											<div class="form-group col-md-6">
 												<label for="studentName">Student Name</label>
-												<input type="text" class="form-control" id="studentName" placeholder="Student Name" name="studentName">
+												<input type="text" class="form-control" id="studentName" placeholder="Student Name" name="studentName" required>
 											</div>
 											<div class="form-group col-md-6">
 												<label for="fatherName">Father Name</label>
-												<input type="text" class="form-control" id="fatherName" placeholder="Father Name" name="fatherName">
+												<input type="text" class="form-control" id="fatherName" placeholder="Father Name" name="fatherName" required>
 											</div>
 										</div>
 										<div class="form-row">
 											<div class="form-group col-md-9">
 												<label for="inputAddress">Address</label>
-												<input type="text" class="form-control" id="address" placeholder="1234 Main St" name="address">
+												<input type="text" class="form-control" id="address" placeholder="1234 Main St" name="address" required>
 											</div>
 											<div class="form-group col-md-3">
 												<label for="inputCity">Class</label>
@@ -91,7 +91,7 @@
 									</div>
 									<div class="form-group col-md-4">
 										<label for="dob">Date of Birth</label>
-										<input class="form-control" type="date" name="dob" required data-date="" data-date-format="DD MM YYYY">
+										<input class="form-control" type="date" name="dob" required data-date="" data-date-format="DD MM YYYY" required>
 									</div>
 									<div class="form-group col-md-4">
 										<label for="inputCity">Gender</label>

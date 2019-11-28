@@ -39,7 +39,7 @@
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
 											<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Students</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800">40,000</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $studentCount; ?></div>
 										</div>
 										<div class="col-auto">
 											<i class="fas fa-user fa-2x text-gray-300"></i>
@@ -55,11 +55,11 @@
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
-											<div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Earning</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+											<div class="text-xs font-weight-bold text-success text-uppercase mb-1">Teachers</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $teacherCount; ?></div>
 										</div>
 										<div class="col-auto">
-											<i class="fas fa-money-check-alt fa-2x text-gray-300"></i>
+											<i class="fas fa-chalkboard-teacher fa-2x text-gray-300"></i>
 										</div>
 									</div>
 								</div>
@@ -72,20 +72,15 @@
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
-											<div class="text-xs font-weight-bold text-info text-uppercase mb-1">Teachers</div>
+											<div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total Earnings</div>
 											<div class="row no-gutters align-items-center">
 												<div class="col-auto">
-													<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-												</div>
-												<div class="col">
-													<div class="progress progress-sm mr-2">
-														<div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-													</div>
+													<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">PKR <?php echo $totalEarning; ?></div>
 												</div>
 											</div>
 										</div>
 										<div class="col-auto">
-											<i class="fas fa-chalkboard-teacher fa-2x text-gray-300"></i>
+											<i class="fas fa-money-check-alt fa-2x text-gray-300"></i>
 										</div>
 									</div>
 								</div>
@@ -99,7 +94,7 @@
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
 											<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Old Students</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $oldStudentCount; ?></div>
 										</div>
 										<div class="col-auto">
 											<i class="fas fa-child fa-2x text-gray-300"></i>
