@@ -39,7 +39,6 @@
                     </div>
                     <button id="edit" onclick="edit()" class="btn btn-secondary">Edit</button>
                     <button id="save" class="btn btn-primary" style="display:none">save</button>
-                    <button id="cancel" class="btn btn-danger" style="display:none">Cancel</button>
                     <!-- DataTales Example -->
                     <div id="main_data" class="card shadow mb-4">
                         <div class="card-header py-3">
@@ -56,9 +55,9 @@
                                             <th>Subject Name</th>
                                             <th>Obtained Marks</th>
                                             <th>Total Marks</th>
-                                            <th class="hidden">Subject Id</th>
-                                            <th class="hidden">Student Id</th>
-                                            <th class="hidden">class Id</th>
+                                            <th style="display:none">Subject Id</th>
+                                            <th style="display:none">Student Id</th>
+                                            <th style="display:none">class Id</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -69,9 +68,9 @@
                                             <th>Subject Name</th>
                                             <th>Obtained Marks</th>
                                             <th>Total Marks</th>
-                                            <th class="hidden">Subject Id</th>
-                                            <th class="hidden">Student Id</th>
-                                            <th class="hidden">class Id</th>
+                                            <th style="display:none">Subject Id</th>
+                                            <th style="display:none">Student Id</th>
+                                            <th style="display:none">class Id</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -84,9 +83,9 @@
                                             <td><input id="marks" class="form-control" pattern="\d+" required
                                                     value="<?php echo $r["obtainedmarks"]; ?>" disabled></input></td>
                                             <td><?php echo $r["totalmarks"]; ?></td>
-                                            <td class="hidden"><?php echo $r["subjectid"]; ?></td>
-                                            <td class="hidden"><?php echo $r["studentid"]; ?></td>
-                                            <td class="hidden"><?php echo $r["classid"]; ?></td>
+                                            <td style="display:none"><?php echo $r["subjectid"]; ?></td>
+                                            <td style="display:none"><?php echo $r["studentid"]; ?></td>
+                                            <td style="display:none"><?php echo $r["classid"]; ?></td>
                                         </tr>
                                         <?php } ?>
                                     </tbody>
@@ -109,8 +108,6 @@
         function edit() {
             var save = document.getElementById('save');
             save.style.display = "";
-            var save = document.getElementById('cancel');
-            save.style.display = "";
             var edit = document.getElementById('edit');
             edit.style.display = "none";
             var inp = document.getElementsByTagName('input');
@@ -119,16 +116,6 @@
                     inp[i].disabled = false;
                 }
             }
-        }
-
-        function getIndex() {
-            var selection = document.getElementById('selection');
-            for (var i = 0; i < selection.length; i++) {
-                if (selection[i].id == "<?php echo $current?>") {
-                    return i;
-                }
-            }
-            return 0;
         }
 
         function checkChanged(changed) {
@@ -142,8 +129,17 @@
             }
             return false;
         }
+
+        function getIndex() {
+            var selection = document.getElementById('selection');
+            for (var i = 0; i < selection.length; i++) {
+                if (selection[i].id == "<?php echo $current?>") {
+                    return i;
+                }
+            }
+            return 0;
+        }
         $(document).ready(function() {
-            var data = getData();
             var selection = document.getElementById('selection');
             selection.selectedIndex = getIndex();
             $("#selection").change(function() {
@@ -154,41 +150,7 @@
                         selection.selectedIndex].id;
                 }
             })
-            $("#cancel").click(function() {
-                var save = document.getElementById('save');
-                save.style.display = "none";
-                var save = document.getElementById('cancel');
-                save.style.display = "none";
-                var edit = document.getElementById('edit');
-                edit.style.display = "";
-                var newData = getData();
-                var changed = new Array();
-                for (var i = 0; i < newData.length; i++) {
-                    if (newData[i]['obtainedmarks'] !== data[i]['obtainedmarks']) {
-                        var d = {
-                            'studentid': data[i]['studentid'],
-                            'subjectid': data[i]['subjectid'],
-                            'obtainedmarks': data[i]['obtainedmarks'],
-                        }
-                        changed.push(d);
-                    }
-                }
-                var table, tr, td;
-                table = document.getElementById("dataTable");
-                tr = table.getElementsByTagName("tr");
-                var j = 0;
-                for (i = 2;
-                    (i < tr.length) && (j < changed.length); i++) {
-                    td = tr[i].getElementsByTagName("td");
-                    if (td[7].innerHTML == changed[j]['studentid'] && td[6].innerHTML == changed[j][
-                            'subjectid'
-                        ]) {
-                        td[4].childNodes[0].value = changed[j]['obtainedmarks'];
-                        j++;
-                    }
-                }
-                disableinputs();
-            })
+            var data = getData();
             $("#save").click(function() {
                 var newData = getData();
                 var changed = new Array();
@@ -241,7 +203,7 @@
         }
 
         function getData() {
-            var table, tr, td, i, txtValue;
+            var filter, table, tr, td, i, txtValue;
             var d = new Array();
             table = document.getElementById("dataTable");
             tr = table.getElementsByTagName("tr");
@@ -251,7 +213,7 @@
                 row['studentid'] = td[7].innerHTML;
                 row['subjectid'] = td[6].innerHTML;
                 row['obtainedmarks'] = td[4].childNodes[0].value;
-                row['totalmarks'] = td[5].innerHTML
+                row['totalmarks'] = td[5].innerHTML;
                 d.push(row);
             }
             return d;
