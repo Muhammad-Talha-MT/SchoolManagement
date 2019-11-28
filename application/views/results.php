@@ -58,6 +58,7 @@
                                             <th style="display:none">Subject Id</th>
                                             <th style="display:none">Student Id</th>
                                             <th style="display:none">class Id</th>
+                                            <th>Print</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -71,6 +72,7 @@
                                             <th style="display:none">Subject Id</th>
                                             <th style="display:none">Student Id</th>
                                             <th style="display:none">class Id</th>
+                                            <th>Print</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -86,6 +88,9 @@
                                             <td style="display:none"><?php echo $r["subjectid"]; ?></td>
                                             <td style="display:none"><?php echo $r["studentid"]; ?></td>
                                             <td style="display:none"><?php echo $r["classid"]; ?></td>
+                                            <td><a href="<?php echo base_url() . 'results/print/'.urlencode($r['studentid'].'_'.$r['regNumber'].'_'.$r['studentName'].'_'. $r['classname'])?>"
+                                                    class="btn btn-info btn-circle"><i class="fas fa-print"></i></a>
+                                            </td>
                                         </tr>
                                         <?php } ?>
                                     </tbody>

@@ -118,4 +118,26 @@ class results extends CI_Controller
             }  
         }
     }
+    function print($d)
+    {
+        $this->load->model("Results_model");
+        $this->load->model("Subject_model");
+        $values=explode('_',urldecode($d));
+        $results=array();
+        $results['studentid']=$values[0];
+        $results['regNumber']=$values[1];
+        $results['studentName']=$values[2];
+        $results['className']=$values[3];
+        $records=$this->Results_model->getResults($values[0]);
+        for ($i=0 ; $i<count($records) ; $i=$i+1)
+        {
+            $r=$this->Subject_model->getSubjectById($records[$i]['subjectid']);
+            $records[$i]['subjectName']=$r->subjectName;
+            $records[$i]['totalmarks']=$r->totalMarks;
+        }
+        $data=array();
+        $data['main']=$results;
+        $data['results']=$records;
+        $this->load->view('printResult',$data);
+    }
 }
