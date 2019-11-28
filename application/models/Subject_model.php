@@ -15,6 +15,13 @@ class Subject_Model extends CI_Model
         // print_r($subject=$this->db->get()->row());
         // die();
     }
+    function getSubjectById($id)
+    {
+        $this->db->select('subjectName,totalMarks');
+        $this->db->where("id", $id);
+        $this->db->from('tbSubject');
+        return $subject=$this->db->get()->row();
+    }
     function getSubject()
     {
         return $this->db->get('tbSubject')->result_array();
