@@ -13,8 +13,8 @@ class Login extends CI_Controller
 		$this->load->model('Login_model');
 		if ($formArray['name'] == "Haseeb" && $formArray['password'] == "123") {
 			$newdata = array(
-				'id' => $formArray['name'],
-				'username'  => $formArray['password'],
+				'id' => 1,
+				'username'  => $formArray['name'],
 				'logged_in' => TRUE,
 				'isAdmin' => TRUE
 			);

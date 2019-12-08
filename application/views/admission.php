@@ -1,3 +1,8 @@
+<?php
+if (!isset($_SESSION['id'])) {
+	redirect(base_url() . 'Login/showLogin');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <script type="text/javascript">
