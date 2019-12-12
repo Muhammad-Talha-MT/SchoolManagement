@@ -3,7 +3,6 @@ class TeacherPay extends CI_Controller
 {
     function __constructor()
     {
-        parent::construct();
         $this->load->model('TeacherPay_model');
     }
 

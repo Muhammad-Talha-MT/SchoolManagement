@@ -9,6 +9,14 @@ class Teacher_model extends CI_Model
 	{
 		return $this->db->get('tbteacher')->result_array();
 	}
+	function getTeacherName($subject)
+	{
+		$this->db->where('specialSubject', $subject);
+		$this->db->select('teacherName');
+		$query = $this->db->get('tbteacher')->result_array();
+		return $query;
+	}
+
 	function getTeacherCount()
 	{
 		$teacherCount = $this->db->from("tbteacher")->count_all_results();

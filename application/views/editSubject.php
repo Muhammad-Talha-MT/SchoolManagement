@@ -35,73 +35,73 @@ if (!isset($_SESSION['id'])) {
                     ?>
                     <?php echo validation_errors('<div class="alert alert-danger">', '</div> '); ?>
 
-					<div class="border-left-primary">
                     <div class="border-left-primary">
-                        <div class="container">
-                            <form method="POST" action="<?php echo base_url() . 'Subject/showEdit/' .$id?>">
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="inputEmail4">Name</label>
-                                        <input class="form-control" id="subjectName" placeholder="Name" name="subjectName" required value="<?php echo set_value('subjectName', $subjectName); ?>">
-                                        <?php echo form_error('subjectMarks'); ?>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="inputPassword4">Total Marks</label>
-                                        <input class="form-control" id="subjectMarks" placeholder="Marks" name="subjectMarks" required value="<?php echo set_value('subjectMarks', $totalMarks); ?>">
-                                        <?php echo form_error('subjectMarks'); ?>
+                        <div class="border-left-primary">
+                            <div class="container">
+                                <form method="POST" action="<?php echo base_url() . 'Subject/showEdit/' . $id ?>">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="inputEmail4">Name</label>
+                                            <input class="form-control" id="subjectName" placeholder="Name" name="subjectName" required value="<?php echo set_value('subjectName', $subjectName); ?>">
+                                            <?php echo form_error('subjectMarks'); ?>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputPassword4">Total Marks</label>
+                                            <input class="form-control" id="subjectMarks" placeholder="Marks" name="subjectMarks" required value="<?php echo set_value('subjectMarks', $totalMarks); ?>">
+                                            <?php echo form_error('subjectMarks'); ?>
                                         </div>
 
                                         <div class="form-group col-md-6">
-                                        <label for="inputCity">Class</label>
-                                        <select class="form-control" name="class" required>
-                                            <option>----Class----</option>
-                                            <?php foreach ($class as $c) { ?>
-                                                <option value="<?php echo $c['id']; ?>"><?php echo $c['className']; ?></option>
+                                            <label for="inputCity">Class</label>
+                                            <select class="form-control" name="class" required>
+                                                <option>----Class----</option>
+                                                <?php foreach ($class as $c) { ?>
+                                                    <option value="<?php echo $c['id']; ?>"><?php echo $c['className']; ?></option>
 
-                                            <?php  } ?>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="inputCity">Teacher</label>
-                                        <select class="form-control" name="teacher" required>
-                                            <option>----Teacher----</option>
-                                            <?php foreach ($teacher as $t) { ?>
-                                                <option value="<?php echo $c['id']; ?>"><?php echo $t['teacherName']; ?></option>
+                                                <?php  } ?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputCity">Teacher</label>
+                                            <select class="form-control" name="teacher" required>
+                                                <option>----Teacher----</option>
+                                                <?php foreach ($teacher as $t) { ?>
+                                                    <option value="<?php echo $c['id']; ?>"><?php echo $t['teacherName']; ?></option>
 
-                                            <?php  } ?>
-                                        </select>
-                                    </div>
-                                    <br />
-                                    <br />
-                                </div> <button type="submit" class="btn btn-primary ">Done</button>
-                            </form>
+                                                <?php  } ?>
+                                            </select>
+                                        </div>
+                                        <br />
+                                        <br />
+                                    </div> <button type="submit" class="btn btn-primary ">Done</button>
+                                </form>
 
+                            </div>
                         </div>
+
                     </div>
+                    <br />
+
+                    <?php
+                    if (isset($_SESSION['success'])) {
+                        echo  "<span class='alert alert-success'>" . $_SESSION['success'] . "</span>";
+                    }
+                    ?>
+                    <!-- /.container-fluid -->
 
                 </div>
-                <br />
+                <!-- End of Main Content -->
 
-                <?php
-                if (isset($_SESSION['success'])) {
-                    echo  "<span class='alert alert-success'>" . $_SESSION['success'] . "</span>";
-                }
-                ?>
-                <!-- /.container-fluid -->
+                <?php require('footbar.php'); ?>
 
             </div>
-            <!-- End of Main Content -->
-
-            <?php require('footbar.php'); ?>
+            <!-- End of Content Wrapper -->
 
         </div>
-        <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
+        <!-- End of Page Wrapper -->
 
 
-    <?php require('foot.php'); ?>
+        <?php require('foot.php'); ?>
 
 </body>
 

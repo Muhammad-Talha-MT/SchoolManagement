@@ -14,7 +14,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url()?>">
+        <a class="nav-link" href="<?php echo base_url() ?>">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -28,28 +28,26 @@
     </div>
 
     <?php
-	if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == TRUE) { ?>
-    <!-- Users -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsers" aria-expanded="true"
-            aria-controls="collapseUsers">
-            <i class="fas fa-fw fa-folder"></i>
-            <span>Users</span>
-        </a>
-        <div id="collapseUsers" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Users</h6>
-                <a class="collapse-item" href="<?php echo base_url() . 'Users/addUser' ?>">Add Users</a>
-                <a class="collapse-item" href="<?php echo base_url() . 'Users' ?>">View Users</a>
+    if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == TRUE) { ?>
+        <!-- Users -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsers" aria-expanded="true" aria-controls="collapseUsers">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Users</span>
+            </a>
+            <div id="collapseUsers" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Users</h6>
+                    <a class="collapse-item" href="<?php echo base_url() . 'Users/addUser' ?>">Add Users</a>
+                    <a class="collapse-item" href="<?php echo base_url() . 'Users' ?>">View Users</a>
+                </div>
             </div>
-        </div>
-    </li>
+        </li>
     <?php } ?>
 
     <!-- Class -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClasses"
-            aria-expanded="true" aria-controls="collapseClasses">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClasses" aria-expanded="true" aria-controls="collapseClasses">
             <i class="fas fa-fw fa-folder"></i>
             <span>Classes</span>
         </a>
@@ -71,8 +69,7 @@
     </li>
     <!-- Subject-->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSubject"
-            aria-expanded="true" aria-controls="collapsePages">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSubject" aria-expanded="true" aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder"></i>
             <span>Subject Data</span>
         </a>
@@ -88,8 +85,7 @@
 
     <!-- Student -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseStudents"
-            aria-expanded="true" aria-controls="collapsePages">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseStudents" aria-expanded="true" aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder"></i>
             <span>Students Data</span>
         </a>
@@ -105,8 +101,7 @@
 
     <!--Teacher-->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTeacher"
-            aria-expanded="true" aria-controls="collapsePages">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTeacher" aria-expanded="true" aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder"></i>
             <span>Teacher Data</span>
         </a>
@@ -120,11 +115,25 @@
             </div>
         </div>
     </li>
+    <!--TimeTable-->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTimeTable" aria-expanded="true" aria-controls="collapsePages">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Time Table</span>
+        </a>
+        <div id="collapseTimeTable" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Time Table</h6>
+                <a class="collapse-item" href="<?php echo base_url() . 'Timetable' ?>">Add Lecture in Time Table</a>
+                <a class="collapse-item">View Time Table</a>
+                <div class="collapse-divider"></div>
+            </div>
+        </div>
+    </li>
 
     <!--Dues Section-->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDues" aria-expanded="true"
-            aria-controls="collapsePages">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDues" aria-expanded="true" aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder"></i>
             <span>Dues Section</span>
         </a>

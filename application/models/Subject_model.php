@@ -10,7 +10,7 @@ class Subject_Model extends CI_Model
         $this->db->select('id,subjectName,totalMarks');
         $this->db->where("classId", $id);
         $this->db->from('tbSubject');
-        return $subject=$this->db->get()->result_array();
+        return $subject = $this->db->get()->result_array();
 
         // print_r($subject=$this->db->get()->row());
         // die();
@@ -20,7 +20,12 @@ class Subject_Model extends CI_Model
         $this->db->select('subjectName,totalMarks');
         $this->db->where("id", $id);
         $this->db->from('tbSubject');
-        return $subject=$this->db->get()->row();
+        return $subject = $this->db->get()->row();
+    }
+    function getSubjectName()
+    {
+        $this->db->select('subjectName');
+        return $this->db->get('tbsubject')->result_array();
     }
     function getSubject()
     {
@@ -28,10 +33,10 @@ class Subject_Model extends CI_Model
     }
     function getClassName($id)
     {
-     $this->db->where('id',$id);
-     $this->db->from('tbclass');
-     $this->db->select('className');
-     return $this->db->get()->row();
+        $this->db->where('id', $id);
+        $this->db->from('tbclass');
+        $this->db->select('className');
+        return $this->db->get()->row();
     }
     function check($subjectName, $class)
     {
