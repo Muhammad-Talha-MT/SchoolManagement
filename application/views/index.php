@@ -1,322 +1,253 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+<head>
+ <!-- Compiled and minified CSS -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
+ <!-- Compiled and minified JavaScript -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+ <style>
+ img{
+    width: 600px;
+    height: 400px;
+    position: relative;
+    animation: mymove 5s infinite;
+  }
+  .img1{
+    width: 600px;
+    height: 300px;
+    position: relative;
+    animation: mymove 5s infinite;
+  }
+  .cardbox {
+  box-sizing: border-box;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+.boldtext {
+  font-family: "BT Mono bold" !important;
+  font-size: 50px;
 
-<?php require('head.php'); ?>
-
-<body id="page-top">
-
-  <!-- Page Wrapper -->
-  <div id="wrapper">
-    <?php require("sidebar.php"); ?>
-
-
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
-
-      <!-- Main Content -->
-      <div id="content">
-
-        <?php require("topbar.php"); ?>
-
-
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
-
-          <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-          </div>
-
-          <!-- Content Row -->
-          <div class="row">
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Earnings (Monthly)</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Earnings (Annual)</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-info shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks</div>
-                      <div class="row no-gutters align-items-center">
-                        <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                        </div>
-                        <div class="col">
-                          <div class="progress progress-sm mr-2">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Pending Requests Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending Requests</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-comments fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Content Row -->
-
-          <div class="row">
-
-            <!-- Area Chart -->
-            <div class="col-xl-8 col-lg-7">
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
-                  <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                  </div>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                  <div class="chart-area">
-                    <canvas id="myAreaChart"></canvas>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Pie Chart -->
-            <div class="col-xl-4 col-lg-5">
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-                  <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                  </div>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                  <div class="chart-pie pt-4 pb-2">
-                    <canvas id="myPieChart"></canvas>
-                  </div>
-                  <div class="mt-4 text-center small">
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-primary"></i> Direct
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Social
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-info"></i> Referral
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Content Row -->
-          <div class="row">
-
-            <!-- Content Column -->
-            <div class="col-lg-6 mb-4">
-
-              <!-- Project Card Example -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
-                </div>
-                <div class="card-body">
-                  <h4 class="small font-weight-bold">Server Migration <span class="float-right">20%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Sales Tracking <span class="float-right">40%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Customer Database <span class="float-right">60%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Payout Details <span class="float-right">80%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Account Setup <span class="float-right">Complete!</span></h4>
-                  <div class="progress">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Color System -->
-              <div class="row">
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-primary text-white shadow">
-                    <div class="card-body">
-                      Primary
-                      <div class="text-white-50 small">#4e73df</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-success text-white shadow">
-                    <div class="card-body">
-                      Success
-                      <div class="text-white-50 small">#1cc88a</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-info text-white shadow">
-                    <div class="card-body">
-                      Info
-                      <div class="text-white-50 small">#36b9cc</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-warning text-white shadow">
-                    <div class="card-body">
-                      Warning
-                      <div class="text-white-50 small">#f6c23e</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-danger text-white shadow">
-                    <div class="card-body">
-                      Danger
-                      <div class="text-white-50 small">#e74a3b</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-secondary text-white shadow">
-                    <div class="card-body">
-                      Secondary
-                      <div class="text-white-50 small">#858796</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-            <div class="col-lg-6 mb-4">
-
-              <!-- Illustrations -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
-                </div>
-                <div class="card-body">
-                  <div class="text-center">
-                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="img/undraw_posting_photo.svg" alt="">
-                  </div>
-                  <p>Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a constantly updated collection of beautiful svg images that you can use completely free and without attribution!</p>
-                  <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on unDraw &rarr;</a>
-                </div>
-              </div>
-
-              <!-- Approach -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
-                </div>
-                <div class="card-body">
-                  <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce CSS bloat and poor page performance. Custom CSS classes are used to create custom components and custom utility classes.</p>
-                  <p class="mb-0">Before working with this theme, you should become familiar with the Bootstrap framework, especially the utility classes.</p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
+}
+.boldtextfont  {
+  font-family: "BT Mono bold" !important;
+  font-size: 100px;
+}
+.boldrs {
+  font-family: "BT Mono bold" !important;
+  font-size: 30px;
+}
+.icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 7px;
+  background: #04c9b7;
+  text-align: center;
+  margin-left: 24px;
+}
+.icons {
+  width: 56px;
+  height: 56px;
+  border-radius: 7px;
+  background: #04c9b7;
+  text-align: center;
+  margin-left: 50px;
+}
+  
+  @keyframes mymove {
+    0% {left: 0px;top:0px}
+    50% {left: 0px;top:60px;}
+    100% {left: 0px;top:0px}
+  }
+ </style>
+</head>
+<body>
+  <div style="background-color: #1F2641;height: 2400px;" >
+  <!-- NavBar Start-->
+    <nav style="background-color: #1f2641 !important;">
+        <div class="nav-wrapper container" >
+          <a href="#" class="brand-logo">Logo</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="<?php echo base_url()."/login"?>"class="btn  red lighten-1">Login</a></li>
+            <li><a href="<?php echo base_url()."/SignUp"?>"class="btn  red lighten-1">SignUp</a></li>
+          </ul>
         </div>
-        <!-- /.container-fluid -->
+      </nav>
+      <!-- NavBar End-->
 
-      </div>
-      <!-- End of Main Content -->
+    <br></br>
+    <br></br>
 
-      <?php require("footbar.php") ?>
-
-    </div>
-    <!-- End of Content Wrapper -->
-
+    
+    <div class="row container">
+    <div class="col s6">
+      <div >
+        <div class="card-content white-text">
+          <h1 style="font-family: BT Mono bold">Start BitCoin Mining Now </h1>
+        </div>
+        
+        <h4 class="white-text" style="font-family: BT Mono bold;font-size: 40px;">
+        200 GH/s Startup Bonus
+        </h4>
+        <div class="white-text">
+        Make profit along with the biggest mining company that is engaged in the industrial bitcoin mining through the modified ASIC-devices!
+        </div>
+        <br></br>
+        <div>
+        <button class="btn-large red lighten-1 col s5">Get 200 GH/S Bonus </button>
+        </div>
+        </div>
+        
+      
   </div>
-  <!-- End of Page Wrapper -->
+  <div class="col s6">
+          <img src="<?php echo base_url()."/upload/Image.png"?>" >
+        </div>
+        </div>
+        <br/>
+        <div class="center-align">
+          <h4 class="white-text boldtext">
+            Mining Start Immediately after payment
+          </h4>
+        </div>
+        <div class="row">
+    <div class="col s3">
+      <div class="card blue-grey" style="background-color: #1f2641 !important;" >
+          <h1 class="boldtextfont card-title center-align  light-blue-text ">Starter</h1>
+          <h1 class="center-align white-text ">1% Daily</h1>
+          <p class="cardbox container white-text">Mini Purchase
+          <span class="right white-text">500 GH/S</span></p>
+          <p class="cardbox container white-text">Max Purchase
+          <span class="right white-text">4999 GH/S</span></p>
+          <p class="cardbox container white-text">Mini Payout
+          <span class="right white-text">0.00005BTC GH/S</span></p>
+          <p class="cardbox container white-text">Maintaiance fee
+          <span class="right white-text">included</span></p>
+          <p class="cardbox container white-text">contract for
+          <span class="right white-text">12 month</span></p>
+          
+          <div class="card-action">
+          <button class="btn  red lighten-1">Invest Now</button>
+        </div>
+        </div>
+        </div>
+        <div class="col s3">
+      <div class="card blue-grey " style="background-color: #1f2641 !important;">
+          <h1 class="boldtextfont card-title center-align  light-blue-text ">Business</h1>
+          <h1 class="center-align white-text ">1.4% Daily</h1>
+          <p class="cardbox container white-text">Mini Purchase
+          <span class="right white-text">5000 GH/S</span></p>
+          <p class="cardbox container white-text">Max Purchase
+          <span class="right white-text">24999 GH/S</span></p>
+          <p class="cardbox container white-text">Mini Payout
+          <span class="right white-text">0.00005BTC GH/S</span></p>
+          <p class="cardbox container white-text">Maintaiance fee
+          <span class="right white-text">included</span></p>
+          <p class="cardbox container white-text">contract for
+          <span class="right white-text">12 month</span></p>
+          
+          <div class="card-action">
+          <button class="btn  red lighten-1">Invest Now</button>
+        </div>
+        </div>
+    </div>
+    <div class="col s3">
+      <div class="card blue-grey "style="background-color: #1f2641 !important;">
+          <h1 class=" card-title center-align light-blue-text " style="font-family: BT Mono bold !important;
+          font-size: 30px;">Premium</h1>
+          <h1 class="center-align white-text ">1.6% Daily</h1>
+          <p class="container white-text">Mini Purchase
+          <span class="right white-text">24999 GH/S</span></p>
+          <p class="cardbox container white-text">Max Purchase
+          <span class="right white-text">249999 GH/S</span></p>
+          <p class="cardbox container white-text">Mini Payout
+          <span class="right white-text">0.00005BTCGH/S</span></p>
+          <p class="cardbox container white-text">Maintaiance fee
+          <span class="right white-text">included</span></p>
+          <p class="cardbox container white-text">contract for
+          <span class="right white-text">12 month</span></p>
+          
+          <div class="card-action">
+          <button class="btn  red lighten-1">Invest Now</button>
+        </div>
+        </div>
+    </div>
+    <div class="col s3">
+      <div class="card blue-grey "style="background-color: #1f2641 !important;">
+          <h1 class="boldtextfont card-title center-align  light-blue-text ">Gold</h1>
+          <h1 class="center-align white-text ">3% Daily</h1>
+          <p class="cardbox container white-text">Mini Purchase
+          <span class="right white-text">249999 GH/S</span></p>
+          <p class="cardbox container white-text">Max Purchase
+          <span class="right white-text">5000000 GH/S</span></p>
+          <p class="cardbox container white-text">Mini Payout
+          <span class="right white-text">0.00005BTC GH/S</span></p>
+          <p class="cardbox container white-text">Maintaiance fee
+          <span class="right white-text">included</span></p>
+          <p class="cardbox container white-text">contract for
+          <span class="right white-text">12 month</span></p>
+          
+          <div class="card-action">
+          <button class="btn  red lighten-1">Invest Now</button>
+        </div>
+        </div>
+    </div>
+  </div>
+  <br/>
+  <br/>
+  <div class="row container">
+    <div class="col s6">
+        <div class="card-content white-text">
+          <span class="card-title "style="font-family: BT Mono bold !important;
+          font-size: 30px;">ABOUT BUGAMINING</span>
+          <p style="font-family: BT Mono bold !important;
+          font-size: 20px;opacity: 0.5;">The story of Buga Mining started at the end of 2019. Our founders got to know each other by using the same platform for buying and selling Bitcoins. They were fascinated by the technology and wanted to build their own farm, only to realize all their friends wanted to participate as well.
+            They came up with the idea of mining as a service and built the first mining farm in Eastern Europe. Since our founding, we have grown tremendously and a lot has happened, but one thing remains constant: We are all strong believers in the future of digital currencies and we love being part of this growing community.</p>
+      </div>
+    </div>
+    <div class="col s6">
+      <img src="<?php echo base_url()."/upload/1.png"?>" >
+    </div>
+  </div>
+  <br/>
+  <br/>
+  <h2 class="center-align white-text" style="font-family: BT Mono bold !important;">Referral commissions from 5% up to 20%</h2>
+  <br/>
+  <div class="row container">
+    <div class="col s6">
+        <div class="card-content white-text">
+          <li class="card-title "style="font-family: BT Mono bold !important;
+          font-size: 25px;">5% FIRST LEVEL(1-30 referrals)</li>
+          <br/>
+          <br/>
+          <li class="card-title "style="font-family: BT Mono bold !important;
+          font-size: 25px;">8% SECOND LEVEL(30-45 referrals)</span>
+          <br/>
+          <br/>
+          <li class="card-title "style="font-family: BT Mono bold !important;
+          font-size: 25px;">10% THIRD LEVEL(45-60 referrals)</li>
+          <br/>
+          <br/>
+          <li class="card-title "style="font-family: BT Mono bold !important;
+          font-size: 25px;">15% FOURTH LEVEL(60-80 referrals)</li>
+          <br/>
+          <br/>
+          <li class="card-title "style="font-family: BT Mono bold !important;
+          font-size: 20px;">20% REPRESENTATIVE PARTNERSHIP</li>
+      </div>
+    </div>
+    <div class="col s6">
+      <img class="img1"src="<?php echo base_url()."/upload/2.png"?>" />
+    </div>
+  </div>
+</div>
 
-  <?php require('foot.php'); ?>
 
 </body>
-
 </html>
