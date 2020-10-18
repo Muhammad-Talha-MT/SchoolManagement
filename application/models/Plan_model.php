@@ -43,5 +43,11 @@ class Plan_model extends CI_Model
 		$insertId = $this->db->insert_id();
 		return $insertId;
 	}
+	function getSelectedPlan($user)
+	{
+		$this->db->where("user_id", $user);
+		$query=$this->db->get("selected_plans")->row_array();	
+		return $query;
+	}
 }
 ?>

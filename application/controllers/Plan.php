@@ -1,7 +1,12 @@
 <?php
+use Coinbase\Wallet\Client;
+use Coinbase\Wallet\Configuration;
+use Coinbase\Wallet\Resource\Address;
+
+
 class Plan extends CI_Controller
 {
-
+	
     public function index()
 	{
         $this->load->model('Plan_model');
@@ -46,12 +51,24 @@ class Plan extends CI_Controller
 	}
 	public function selectPlan()
 	{
+		
 		$this->load->model('Plan_model');
 		$planid=($this->input->post('planid'));
 		$data['plan']=$this->Plan_model->getPlanById($planid);
 		$dataToSend["plan_id"]=$data['plan']["id"];
 		$dataToSend['user_id']=$_SESSION["id"];
+		// $dataToSend['status']='pending';
 		$this->Plan_model->selectedPlan($dataToSend);
+		$key=' 2zS1NCrUrepG1PqK';
+        $secret='COLRBdWX83ywG6wBuAGwQL2WeeGpPsvf';
+        $configuration = Configuration::apiKey($key, $secret);
+        $client = Client::create($configuration);
+        $address = new Address([
+			'name' => 'plan for use'
+		]);
+		 $a=$client->getCurrentAuthorization();
+		die();
+        // $client->createAccountAddress($account, $address);
 		redirect(base_url() . 'dashboard');
 	}
 }

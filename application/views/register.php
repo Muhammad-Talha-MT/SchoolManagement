@@ -28,6 +28,11 @@
                 <div class="form-group">
                   <input type="email" class="form-control form-control-user" id="userEmail" name="userEmail" placeholder="Email Address">
                 </div>
+                <?php if(isset( $_SESSION['refercode'])){?>
+                <div class="form-group">
+                  <input value="<?php echo $_SESSION['refercode']?>" hidden type="text" class="form-control form-control-user" id="refer" name="refercode" placeholder="refer">
+                </div>
+                <?php } ?>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
                     <input type="password" class="form-control form-control-user" id="userPassword" name="userPassword" placeholder="Password">
